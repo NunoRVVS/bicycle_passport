@@ -1,5 +1,9 @@
 class Bicycle < ApplicationRecord
   belongs_to :user
-  has_many :warranties, :insurance_policies, :users_rides, :maintenances, :bicycle_components
 
+  has_many :bicycle_components
+  has_many :insurance_policies
+  has_many :users_rides
+  has_many :maintenances
+  has_many :warranties
 end
