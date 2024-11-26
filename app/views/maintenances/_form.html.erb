@@ -1,0 +1,11 @@
+<%= form_with model: [@maintenance,@bicycle] do |f| %>
+  <%= f.label :date %>
+  <%= f.date :date %>
+  <%= f.label :shop %>
+  <%= f.text_field :shop %>
+   <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%# <%= f.label :bicycle_id %>
+  <%# <%= f.number_field @bicycle %>
+  <%= f.submit %>
+<% end %>
