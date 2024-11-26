@@ -1,2 +1,50 @@
-<h1>Bicyle Passport</h1>
-<%# <p>Welcome <%= @user.name %>
+<div class="container">
+
+
+
+  <% if defined?(@user) %>
+    <p>Welcome <%= @user.name %></p>
+    <%= image_tag "Bike.png", alt: "Bike image", class: "rounded" %>
+
+    <div class="edges">
+      <div>
+        <h1>Bike Name font CONQUERA</h1>
+        <h3><strong>Bike Brand/Model</strong></h3>
+      </div>
+      <div>
+        <%= link_to "Share", "/users/edit", class: "btn btn-warning" %>
+      </div>
+    </div>
+
+    <p>This is a long description of the bike, here we would have a long text that describes the bike in a long form that would ask us to use a See more.. button.</p>
+
+
+    <%= link_to "Details", class: "navbar-brand" do %>
+      <i class="fa-solid fa-circle-info"></i>
+    <% end %>
+
+    <%= link_to "Rides", class: "navbar-brand" do %>
+      <i class="fa-solid fa-bicycle"></i>
+    <% end %>
+
+    <%= link_to "Log Book", class: "navbar-brand" do %>
+      <i class="fa-solid fa-book"></i>
+    <% end %>
+
+
+          <% if defined?(@bicycles) %>
+            <% @bicycles.each do |bicycle| %>
+              <p>One of the bicycles is <%= bicycle.name %></p>
+            <% end %>
+          <% end %>
+
+          <% if !defined?(@bicycles) %>
+            <p>No bicycles are created</p>
+          <% end %>
+  <% end %>
+
+  <% if !defined?(@user) %>
+    <h2>Please log in</h2>
+  <% end %>
+
+</div>
