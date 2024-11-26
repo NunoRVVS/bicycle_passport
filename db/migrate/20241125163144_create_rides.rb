@@ -1,6 +1,7 @@
 class CreateRides < ActiveRecord::Migration[7.1]
   def change
     create_table :rides do |t|
+      t.string :name
       t.float :start_lat
       t.date :start_date
       t.date :end_date
