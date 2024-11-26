@@ -1,0 +1,10 @@
+<h1>Insurance Policies</h1>
+<%= link_to 'New Policy', new_insurance_policy_path %>
+<ul>
+  <% @insurance_policies.each do |policy| %>
+    <li>
+      <%= link_to policy.insurer, insurance_policy_path(policy) %>
+      - Policy Number: <%= policy.policy_number %>
+    </li>
+  <% end %>
+</ul>

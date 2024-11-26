@@ -65,7 +65,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_25_163951) do
   end
 
   create_table "rides", force: :cascade do |t|
-    t.string "name"
     t.float "start_lat"
     t.date "start_date"
     t.date "end_date"
