@@ -14,14 +14,15 @@ class InsurancePoliciesController < ApplicationController
 
   def create
     @insurance_policy = InsurancePolicy.new(insurance_policy_params)
-    if @insurance_policy.save
-      redirect_to @insurance_policy, notice: 'Insurance policy was successfully created.'
-    else
-      render :new
-    end
+    @insurance_policy.save
+      redirect_to insurance_policy(@insurance_policy), notice: 'Insurance policy was successfully created.'
+    # else
+    #   render :new
+    # end
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @insurance_policy.update(insurance_policy_params)
@@ -32,8 +33,8 @@ class InsurancePoliciesController < ApplicationController
   end
 
   def destroy
-    @insurance_policy.destroy
-    redirect_to insurance_policies_url, notice: 'Insurance policy was successfully destroyed.'
+    # @insurance_policy.destroy
+    # redirect_to insurance_policies_url, notice: 'Insurance policy was successfully destroyed.'
   end
 
   private
