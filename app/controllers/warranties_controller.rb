@@ -1,6 +1,6 @@
 class WarrantiesController < ApplicationController
-  before_action :set_warranty, only: %i[show edit update destroy]
-  before_action :set_bike, only: %i[show edit create]
+  # before_action :set_warranty, only: %i[show edit update destroy]
+  # before_action :set_bike, only: %i[show edit create]
   def index
     @warranties = Warranty.all
   end
@@ -10,7 +10,7 @@ class WarrantiesController < ApplicationController
 
   def update
   end
-  
+
   def show
   end
 
