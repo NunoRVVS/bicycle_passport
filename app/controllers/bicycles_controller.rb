@@ -14,7 +14,6 @@ class BicyclesController < ApplicationController
 
   def create
     @bicycle = Bicycle.new(bicycle_params)
-    @bicycle = Bicycle.new(bicycle_params)
     @bicycle.save
     redirect_to bicycle_path(@bicycle)
   end
