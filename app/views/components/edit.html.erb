@@ -1,0 +1,23 @@
+<h1>Edit Component</h1>
+<%= form_with model: @component, local: true do |form| %>
+  <div>
+    <%= form.label :make %>
+    <%= form.text_field :make %>
+  </div>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :serial_number %>
+    <%= form.text_field :serial_number %>
+  </div>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= link_to 'Back', components_path %>

@@ -1,0 +1,7 @@
+<h1>Components</h1>
+<ul>
+  <% @components.each do |component| %>
+    <li><%= link_to component.name, component_path(component) %> - <%= component.make %></li>
+  <% end %>
+</ul>
+<%= link_to 'New Component', new_component_path %>
