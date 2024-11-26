@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'users_rides/new'
+  get 'users_rides/create'
+  get 'users_rides/edit'
+  get 'users_rides/update'
+  get 'users_rides/destroy'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
