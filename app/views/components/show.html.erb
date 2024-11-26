@@ -1,0 +1,6 @@
+<h1><%= @component.name %></h1>
+<p>Make: <%= @component.make %></p>
+<p>Serial Number: <%= @component.serial_number %></p>
+<p>Description: <%= @component.description %></p>
+<%= link_to 'Edit', edit_component_path(@component) %> |
+<%= link_to 'Back', components_path %>
