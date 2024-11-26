@@ -1,0 +1,10 @@
+<h1>Warranty</h1>
+<%= link_to 'New Warranty Registration', new_warranty_path %>
+<ul>
+  <% @warranties.each do |issuer| %>
+    <li>
+      <%= link_to Warranty.issuer, warranty_path(issuer) %>
+      - Warranty Issuer: <%= issuer %>
+    </li>
+  <% end %>
+</ul>
