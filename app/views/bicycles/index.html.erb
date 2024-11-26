@@ -1,0 +1,11 @@
+<h3>"Bicycles should appear here"</h3>
+
+<% if @bicycles.count > 0 %>
+
+<ul>
+  <% @bicycles.each do |bicycle| %>
+    <li><%= bicycle.name %></li>
+  <% end %>
+</ul>
+
+<% end %>
