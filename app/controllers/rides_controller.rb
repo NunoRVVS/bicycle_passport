@@ -32,6 +32,10 @@ class RidesController < ApplicationController
     redirect_to rides_path, status: :see_other
   end
 
+  def my_rides
+    @rides = Ride.select {|ride| ride.user == current_user}
+  end
+
   private
 
   def ride_params

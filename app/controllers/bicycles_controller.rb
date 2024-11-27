@@ -8,6 +8,10 @@ class BicyclesController < ApplicationController
   def show
   end
 
+  def bike_rack
+  @bicycles = Bicycle.all.select { |bike| bike.user == current_user }
+  end
+
   def new
     @bicycle = Bicycle.new
   end
