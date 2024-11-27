@@ -1,6 +1,8 @@
 # app/controllers/insurance_policies_controller.rb
 class InsurancePoliciesController < ApplicationController
-  before_action :set_insurance_policy, only: [:show, :edit, :update, :destroy]
+  before_action :set_insurance_policy, only: [:edit, :update, :destroy]
+  before_action :set_bicycle, only: [:create, :edit, :update, :destroy]
+
 
   def index
     @insurance_policies = InsurancePolicy.all
@@ -17,7 +19,7 @@ class InsurancePoliciesController < ApplicationController
   def create
     @insurance_policy = InsurancePolicy.new(insurance_policy_params)
     if @insurance_policy.save
-      redirect_to @insurance_policy
+      redirect_to bicycle_path(@bicycle)
     else
       render :new
     end
@@ -41,6 +43,9 @@ class InsurancePoliciesController < ApplicationController
   end
 
   private
+  def set_bicycle
+    @bicycle = Bicycle.find(params[:bicycle_id])
+  end
 
   def set_insurance_policy
     @insurance_policy = InsurancePolicy.find(params[:id])
