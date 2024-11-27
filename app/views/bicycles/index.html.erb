@@ -4,8 +4,11 @@
 
 <ul>
   <% @bicycles.each do |bicycle| %>
-    <li><%= bicycle.name %></li>
-  <% end %>
+  <p>
+<%= link_to bicycle.name, bicycle_path(bicycle) %>
+  </p>
+
+ <% end %>
 </ul>
 
 <% end %>

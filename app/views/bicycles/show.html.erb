@@ -1,10 +1,22 @@
 <h3>" A single bicycle should appear here"</h3>
 <p> we can add the form to edit the bicycle here</p>
 
-<% if @bicycle.exists %>
+
   <h2><%= @bicycle.name %></h2>
-  <%= link_to "Delete",
-    bicycle_path(@bicycle),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
-<% end %>
+  <p>
+    <%= link_to "Ins pols", bicycle_insurance_policies_path(@bicycle) %>
+  </p>
+
+  <p>
+    <%= link_to "Warranties",  bicycle_warranties_path(@bicycle) %>
+  </p>
+
+  <p>
+    <%= link_to "Maintenances", bicycle_maintenances_path(@bicycle) %>
+  </p>
+  <p>
+      <%= link_to "Delete",
+        bicycle_path(@bicycle),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %>
+   </p>
