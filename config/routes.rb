@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   Rails.application.routes.draw do
     resources :bicycles do
-      resources :maintenance, only: [:new, :create, :index, :update]
+      resources :maintenances, only: [:new, :create, :index, :update]
       resources :warranties, only: [:new, :create, :index, :update]
       resources :insurance_policies, only: [:new, :create, :index, :update]
     end
