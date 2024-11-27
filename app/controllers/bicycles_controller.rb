@@ -13,6 +13,7 @@ class BicyclesController < ApplicationController
   end
 
   def create
+
     @bicycle = Bicycle.new(bicycle_params)
     @bicycle.user = current_user
     @bicycle.save
