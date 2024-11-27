@@ -4,8 +4,10 @@ class InsurancePoliciesController < ApplicationController
   before_action :set_bicycle, only: [:create, :edit, :update, :destroy]
 
 
+
   def index
-    @insurance_policies = InsurancePolicy.all
+    @bicycle = Bicycle.find(params[:bicycle_id])
+    @insurance_policies = InsurancePolicy.where(bicycle_id: @bicycle.id)
   end
 
   def show
