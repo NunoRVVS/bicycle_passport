@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_25_163951) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_27_094313) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,6 +65,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_25_163951) do
   end
 
   create_table "rides", force: :cascade do |t|
+    t.string "name"
     t.float "start_lat"
     t.date "start_date"
     t.date "end_date"
@@ -75,10 +76,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_25_163951) do
     t.float "distance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.time "start_time"
+    t.time "end_time"
     t.index ["user_id"], name: "index_rides_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

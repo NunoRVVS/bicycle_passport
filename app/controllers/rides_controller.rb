@@ -20,6 +20,9 @@ class RidesController < ApplicationController
 
   def create
     @ride = Ride.new(ride_params)
+    @user = current_user
+    @ride.user = current_user
+    @ride
   end
 
   def destroy
@@ -31,6 +34,6 @@ class RidesController < ApplicationController
   private
 
   def ride_params
-    params.require(:ride).permit(:name, :start_lat, :start_long, :end_lat, :end_long, :start_date, :end_date, :distance, :user)
+    params.require(:ride).permit(:name, :start_lat, :start_long, :end_lat, :end_long, :start_date, :start_time, :end_time, :end_date, :distance, :user)
   end
 end

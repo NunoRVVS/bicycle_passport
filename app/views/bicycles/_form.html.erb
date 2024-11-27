@@ -1,15 +1,8 @@
-<%= form_with model: bicycle do |f| %>
-  <%= f.label :name %>
-  <%= f.text :name %>
-  <%= f.label :category %>
-  <%= f.text :category %>
-  <%= f.label :serial_number %>
-  <%= f.text :serial_number %>
-  <%= f.label :description %>
-  <%= f.text :description %>
-  <%= f.label :make %>
-  <%= f.text :make %>
-  <%= f.label :serial_number %>
-  <%= f.text :serial_number %>
-  <%= f.submit %>
+<%= simple_form_for @bicycle do |f| %>
+  <%=  f.input :name, as: :string %>
+  <%=  f.input :category, as: :string %>
+  <%=  f.input :serial_number, as: :string %>
+  <%=  f.input :description, as: :text  %>
+  <%=  f.input :make, as: :text  %>
+  <%=  f.submit "Add Bicycle", class: "btn btn-primary" %>
 <% end %>

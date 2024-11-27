@@ -14,6 +14,7 @@ class BicyclesController < ApplicationController
 
   def create
     @bicycle = Bicycle.new(bicycle_params)
+    @bicycle.user = current_user
     @bicycle.save
     redirect_to bicycle_path(@bicycle)
   end
@@ -38,7 +39,7 @@ private
   end
 
   def bicycle_params
-    params.require(:bicycle).permit(:name, :category, :serial_number, :make, :user_id)
+    params.require(:bicycle).permit(:name, :category, :serial_number, :make, :description, :user_id)
   end
 
 end

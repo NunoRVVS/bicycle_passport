@@ -1,0 +1,13 @@
+<%= simple_form_for [@user, @ride] do |f| %>
+  <%=  f.input :name, as: :string %>
+  <%=  f.input :start_lat, as: :float %>
+  <%=  f.input :start_long, as: :float %>
+  <%=  f.input :start_date, as: :date  %>
+  <%=  f.input :start_time, as: :time  %>
+  <%=  f.input :end_date, as: :date  %>
+  <%=  f.input :end_time, as: :time  %>
+  <%=  f.input :end_long, as: :float  %>
+  <%=  f.input :end_lat, as: :float %>
+  <%=  f.input :distance, as: :integer  %>
+  <%=  f.submit "Submit Ride", class: "btn btn-primary" %>
+<% end %>
