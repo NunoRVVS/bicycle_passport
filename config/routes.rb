@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  resources :users do
+    resources :rides, only: [:show, :create, :new, :edit, :destroy, :update]
+  end
+  resources :bicycles
   resources :components
   resources :bicycle_components
   resources :insurance_policies
@@ -16,8 +20,8 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  resources :rides, only: [:index, :show, :create, :new, :edit, :destroy, :update]
-  resources :users_rides
+  resources :rides, only: [:index]
+
 
   # Defines the root path route ("/")
   # root "posts#index"

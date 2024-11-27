@@ -16,7 +16,13 @@ Component.destroy_all
 User.create!(name:"Joao", email:"joao@mail.com", password:"123456")
 
 
-bicycle = Bicycle.create!(name: 'My Bike', category: 'Mountain', serial_number: '12345', description: 'My first bike', make: 'Trek', user: User.first)
+bicycle = Bicycle.create!(name: 'My Bike',
+                          category: 'Mountain',
+                          serial_number: '12345',
+                          description: 'My first bike',
+                          make: 'Trek',
+                          user: User.first)
+
 InsurancePolicy.create!(insurer: 'XYZ Insurance', policy_number: '12345', description: 'Basic coverage', bicycle: bicycle)
 Maintenance.create!(date: Date.today, shop: 'Bike Fix', description: 'Tire replacement', bicycle: bicycle)
 
