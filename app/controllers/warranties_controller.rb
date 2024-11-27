@@ -1,9 +1,10 @@
 class WarrantiesController < ApplicationController
   before_action :set_warranty, only: %i[show edit update destroy]
-  # before_action :set_bike, only: %i[show edit create]
+  before_action :set_bike, only: %i[show edit create]
 
   def index
-    @warranties = Warranty.all
+    @bicycle = Bicycle.find(params[:bicycle_id])
+    @warranties = Warranty.where(bicycle_id:@bicycle.id)
   end
 
   def edit
@@ -33,6 +34,10 @@ class WarrantiesController < ApplicationController
   end
 
   private
+  def set_bicycle
+    @bicycle = Bicycle.find(params[:bicycle_id])
+  end
+
   def set_warranty
     @warranty = Warranty.find(params[:id])
   end
