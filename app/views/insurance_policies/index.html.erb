@@ -1,5 +1,15 @@
 <h1>Insurance Policies for bicycle </h1>
 
-<% @insurance_policies.each do |insurance| %>
-    <p>Policy given by <%= insurance.insurer %></p>
-<% end %>
+<ul>
+  <% @insurance_policies.each do |policy| %>
+    <li>
+      <%= policy.insurer %>
+      - Policy Number: <%= policy.policy_number %>
+      Description:  <%= policy.description %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'New Insurance Policy', new_bicycle_insurance_policy_path %>
+<%= link_to 'Back to my bicycles', bicycles_path %>
+

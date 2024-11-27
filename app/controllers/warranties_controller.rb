@@ -1,16 +1,10 @@
 class WarrantiesController < ApplicationController
-  before_action :set_warranty, only: %i[show edit update destroy]
-  before_action :set_bike, only: %i[show edit create]
+  before_action :set_warranty, only: [:edit, :update, :destroy]
+  before_action :set_bicycle, only: [:create, :edit, :update, :destroy]
 
   def index
     @bicycle = Bicycle.find(params[:bicycle_id])
     @warranties = Warranty.where(bicycle_id:@bicycle.id)
-  end
-
-  def edit
-  end
-
-  def update
   end
 
   def show
@@ -18,15 +12,30 @@ class WarrantiesController < ApplicationController
   end
 
   def new
-    @warranty = Warranty.new
+    # @warranty = Warranty.new
+    @bicycle = Bicycle.find(params[:bicycle_id]) # Find the parent bicycle
+    @warranty = @bicycle.warranties.build
   end
 
   def create
-    @warranty = Warranty.new(warranty_params)
+    @bicycle = Bicycle.find(params[:bicycle_id]) # Find the parent bicycle
+    @warranty = @bicycle.warranties.build(warranty_params)
     if @warranty.save
-      redirect_to @warranty, notice: 'Warranty policy was successfully created.'
+      redirect_to bicycle_warranties_path, notice: 'Warranty policy was successfully created.'
     else
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    @warranty = Warranty.find(params[:id])
+    if @warranty.update(warranty_params)
+      redirect_to @warranty, notice: 'Insurance policy was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -43,6 +52,6 @@ class WarrantiesController < ApplicationController
   end
 
   def warranty_params
-    params.require(:warranty).permit(:issuer, :start_date, :end_date, :bicycle_id, :user_id)
+    params.require(:warranty).permit(:issuer, :start_date, :end_date, :bicycle_id)
   end
 end

@@ -7,7 +7,8 @@ class InsurancePoliciesController < ApplicationController
 
   def index
     @bicycle = Bicycle.find(params[:bicycle_id])
-    @insurance_policies = InsurancePolicy.where(bicycle_id: @bicycle.id)
+    @insurance_policies = InsurancePolicy.where(bicycle_id:@bicycle.id)
+
   end
 
   def show
@@ -15,13 +16,16 @@ class InsurancePoliciesController < ApplicationController
   end
 
   def new
-    @insurance_policy = InsurancePolicy.new
+    # @insurance_policy = InsurancePolicy.new
+    @bicycle = Bicycle.find(params[:bicycle_id]) # Find the parent bicycle
+    @insurance_policy = @bicycle.insurance_policies.build
   end
 
   def create
-    @insurance_policy = InsurancePolicy.new(insurance_policy_params)
+    @bicycle = Bicycle.find(params[:bicycle_id]) # Find the parent bicycle
+    @insurance_policy = @bicycle.insurance_policies.build(insurance_policy_params)
     if @insurance_policy.save
-      redirect_to bicycle_path(@bicycle)
+      redirect_to bicycle_insurance_policies_path, notice: 'Insurance policy was successfully created.'
     else
       render :new
     end
@@ -41,7 +45,7 @@ class InsurancePoliciesController < ApplicationController
 
   def destroy
     # @insurance_policy.destroy
-    # redirect_to insurance_policies_url, notice: 'Insurance policy was successfully destroyed.'
+    # redirect_to bicycle_insurance_policies_path, notice: 'Insurance policy was successfully destroyed.'
   end
 
   private
