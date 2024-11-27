@@ -5,6 +5,7 @@ class RidesController < ApplicationController
 
   def new
     @ride = Ride.new
+    @user = current_user
   end
 
   def edit
@@ -22,7 +23,8 @@ class RidesController < ApplicationController
     @ride = Ride.new(ride_params)
     @user = current_user
     @ride.user = current_user
-    @ride
+    @ride.save
+    redirect_to user_ride_path(@user, @ride)
   end
 
   def destroy
