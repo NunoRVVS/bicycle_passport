@@ -1,0 +1,12 @@
+<h3>List of maintenances</h3>
+
+<% @maintenances.each do |maintenance| %>
+  <div>
+    <p><%= maintenance.shop %></p>
+    <p><%= maintenance.date %></p>
+    <p><%= maintenance.description %></p>
+    <hr>
+  </div>
+<% end %>
+
+<%= link_to "Add a maintenance", new_bicycle_maintenance_path %>

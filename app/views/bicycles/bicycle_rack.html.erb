@@ -1,11 +1,11 @@
 <h3>"Bicycles should appear here"</h3>
 
-<% if @bicycles.count > 0 %>
+<% if !@bicycles.nil? && @bicycles.count > 0 %>
 
 <ul>
   <% @bicycles.each do |bicycle| %>
   <p>
-<%= link_to bicycle.name, bicycle_path(bicycle) %>
+  <%= link_to bicycle.name, bicycle_path(bicycle) %>
   </p>
 
  <% end %>

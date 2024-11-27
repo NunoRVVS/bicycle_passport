@@ -8,11 +8,16 @@ class BicyclesController < ApplicationController
   def show
   end
 
+  def bike_rack
+  @bicycles = Bicycle.all.select { |bike| bike.user == current_user }
+  end
+
   def new
     @bicycle = Bicycle.new
   end
 
   def create
+
     @bicycle = Bicycle.new(bicycle_params)
     @bicycle.user = current_user
     @bicycle.save
