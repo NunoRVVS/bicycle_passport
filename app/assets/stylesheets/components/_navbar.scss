@@ -10,3 +10,36 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-parent{
+
+  // border: 1px solid red;
+  // height: 100%;
+  display: flex;
+  margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-items a{
+  // border: 1px solid rgb(37, 10, 213);
+
+  color:aliceblue;
+  margin: 5px 20px;
+  &:hover {
+    color: rgb(68, 240, 238);
+    transform: scale(1.1);
+  }
+
+}
+
+.main-nav-holder{
+  background-color: black;
+  border-radius: 7px;
+  width:500px;
+  margin-right: 350px;
+
+}
+.biker{
+  // margin: 15px;
+}
