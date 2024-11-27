@@ -14,14 +14,22 @@ Rails.application.routes.draw do
   resources :bicycles
   resources :components
   resources :bicycle_components
-  resources :insurance_policies
-  resources :warranties
+  # resources :insurance_policies
+  # resources :warranties
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :rides, only: [:index]
 
+
+  Rails.application.routes.draw do
+    resources :bicycles do
+      resources :maintenance, only: [:new, :create, :index, :update]
+      resources :warranties, only: [:new, :create, :index, :update]
+      resources :insurance_policies, only: [:new, :create, :index, :update]
+    end
+  end
 
   # Defines the root path route ("/")
   # root "posts#index"
