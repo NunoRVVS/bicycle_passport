@@ -1,9 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon container">
-  <div class="container navbar-parent align-content-inbetween">
+    <div class="container d-flex navbar-parent align-content-inbetween">
     <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag "logo_bike.jpg" %>
     <% end %>
-
+    </div>
     <%# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon">what is this?</span>
     </button> %>
@@ -47,15 +47,12 @@
         <% else %>
         <div class="main-nav-holder">
           <div class="container navbar-items">
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav d-flex justify-content-center">
                 <li class="nav-item">
                   <%= link_to "Bike Rack", bicycle_rack_path, class: "nav-link" %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "My Rides", my_rides_path, class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "Bikes", "/bicycles", class: "nav-link" %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "Club", "/users/3/rides", class: "nav-link" %>
@@ -64,15 +61,13 @@
           </div>
         </div>
 
-        <div class="m-0 ">
-          <ul class="d-flex flex-wrap gap-1">
-            <li class="nav-item active">
-              <%= link_to "Sign up", "/users/sign_up", class: "btn btn-primary btn-sm" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Login", new_user_session_path, class: "btn btn-primary btn-sm" %>
-            </li>
-          </ul>
+        <div class="d-flex">
+            <button class="nav-item active">
+              <%= link_to "Saddle Up!", new_user_session_path %>
+            </button>
+            <%# <button class="nav-item"> %>
+              <%#= link_to "Login", new_user_session_path %>
+            <%# </button> %>
         </div>
         <% end %>
 
