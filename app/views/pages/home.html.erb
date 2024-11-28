@@ -1,7 +1,4 @@
 <div class="container">
-
-
-
   <% if user_signed_in? %>
     <p>Welcome <%= @user.name %>
     <br>
@@ -42,13 +39,15 @@
           <% if !defined?(@bicycles) %>
             <p>No bicycles are created</p>
           <% end %>
+
+    <%= render "shared/footer" %>
+    
    <% else %>
-      <%= image_tag "JLaverack_Bike.jpg", alt: "Bike image2", class: "rounded", style: "width:700px;" %>
-        <div class="edges">
-      <div>
-        <h1>Where your bike is always safe.</h1>
-        <h3>For all those times when you live your dream precious outside. But you have peace of mind because you are with us. No matter what.</h3>
-      </div>
-    </div>
+
+      <%= render "landing_page" %>
+
   <% end %>
+
+
+
 </div>
