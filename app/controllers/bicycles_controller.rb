@@ -6,6 +6,9 @@ class BicyclesController < ApplicationController
   end
 
   def show
+    @bicycles = Bicycle.all.select { |bike| bike.user == current_user }
+    @user = current_user
+    @bicycle = Bicycle.find(params[:id])
   end
 
   def bike_rack
@@ -44,7 +47,7 @@ private
   end
 
   def bicycle_params
-    params.require(:bicycle).permit(:name, :category, :serial_number, :make, :description, :user_id)
+    params.require(:bicycle).permit(:name, :category, :serial_number, :make, :description, :user_id, :photo)
   end
 
 end

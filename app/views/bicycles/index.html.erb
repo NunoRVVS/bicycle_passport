@@ -1,17 +1,22 @@
-<h3>"Bicycles should appear here"</h3>
+<h1 class="d-flex justify-content-center"> ShowRoom </h1>
 
 <% if @bicycles.count > 0 %>
 <div class="container grid card-container bg-white" id="card-container">
 <div class="row">
 <%  6.times do %>
   <% @bicycles.each do |bicycle| %>
-    <div class="card col-sm-4 bike-card  p-0">
+    <div class="card col-sm-4 bike-card p-0">
     <div class="m-3 card-holder">
-      <img src="..." class="card-img-top" alt="Your bike here">
+      <%# <img src="..." class="card-img-top" alt="Your bike here"> %>
+      <% if bicycle.photo.present? %>
+      <div class="m-3 d-flex align-content-center justify-content-center">
+      <%= cl_image_tag bicycle.photo.key, height: 250, width: 350, crop: :fill %>
+      </div>
+      <% end %>
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text"><%= link_to bicycle.name, bicycle_path(bicycle) %></p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title"> <%= link_to bicycle.name, bicycle_path(bicycle), class:'stretched-link' %></h5>
+        <p class="card-text"><%= bicycle.make %> <%= bicycle.category %> </p>
+
       </div>
     </div>
     </div>
