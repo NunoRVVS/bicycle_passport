@@ -1,32 +1,4 @@
-
 <div class = container >
 <%= render "pages/userhome" %>
 </div>
 
-<%# <% if @bicycle.exists %>
-  <h2><%= @bicycle.name %></h2>
-  <%= link_to "Delete",
-    bicycle_path(@bicycle),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
-<%# <% end %>
-
-
-  <h2><%= @bicycle.name %></h2>
-  <p>
-    <%= link_to "Ins pols", bicycle_insurance_policies_path(@bicycle) %>
-  </p>
-
-  <p>
-    <%= link_to "Warranties",  bicycle_warranties_path(@bicycle) %>
-  </p>
-
-  <p>
-    <%= link_to "Maintenances", bicycle_maintenances_path(@bicycle) %>
-  </p>
-  <p>
-      <%= link_to "Delete",
-        bicycle_path(@bicycle),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-      %>
-   </p>

@@ -40,6 +40,8 @@ class WarrantiesController < ApplicationController
   end
 
   def destroy
+    @warranty.destroy
+    redirect_to request.referer || root_path
   end
 
   private
