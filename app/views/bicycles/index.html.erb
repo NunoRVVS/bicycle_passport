@@ -5,13 +5,15 @@
 <div class="row">
 <%  6.times do %>
   <% @bicycles.each do |bicycle| %>
-    <div class="card col-sm-4 bike-card">
+    <div class="card col-sm-4 bike-card  p-0">
+    <div class="m-3 card-holder">
       <img src="..." class="card-img-top" alt="Your bike here">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text"><%= link_to bicycle.name, bicycle_path(bicycle) %></p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
+    </div>
     </div>
   <% end %>
 <%end%>
