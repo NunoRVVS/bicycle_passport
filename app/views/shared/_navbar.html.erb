@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon container">
-  <div class="container navbar-parent">
+  <div class="container navbar-parent align-content-inbetween">
     <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag "logo_bike.jpg" %>
     <% end %>
@@ -45,15 +45,35 @@
       </ul>
 
         <% else %>
+        <div class="main-nav-holder">
+          <div class="container navbar-items">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                  <%= link_to "Bike Rack", bicycle_rack_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "My Rides", my_rides_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Bikes", "/bicycles", class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Club", "/users/3/rides", class: "nav-link" %>
+                </li>
+            </ul>
+          </div>
+        </div>
 
-        <ul>
-          <li class="nav-item active">
-            <%= link_to "Register", "/users/sign_up", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        </ul>
+        <div class="m-0 ">
+          <ul class="d-flex flex-wrap gap-1">
+            <li class="nav-item active">
+              <%= link_to "Sign up", "/users/sign_up", class: "btn btn-primary btn-sm" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: "btn btn-primary btn-sm" %>
+            </li>
+          </ul>
+        </div>
         <% end %>
 
     </div>
