@@ -1,6 +1,6 @@
 class MaintenancesController < ApplicationController
   before_action :set_maintenance, only: [:show, :edit, :update, :destroy]
-  before_action :set_bicycle, only: [:create, :edit, :update, :destroy, :new]
+  before_action :set_bicycle, only: [:index, :create, :edit, :update, :destroy, :new]
 
   def index
     @bicycle = Bicycle.find(params[:bicycle_id])
