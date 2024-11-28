@@ -1,6 +1,6 @@
 class MaintenancesController < ApplicationController
   before_action :set_maintenance, only: [:show, :edit, :update, :destroy]
-  before_action :set_bicycle, only: [:index, :create, :edit, :update, :destroy, :new]
+  before_action :set_bicycle, only: [:index, :create, :edit, :update, :new]
 
   def index
     @bicycle = Bicycle.find(params[:bicycle_id])
@@ -39,7 +39,9 @@ class MaintenancesController < ApplicationController
   def destroy
     @maintenance.destroy
     # @bicycle = Maintenence.find(params[:bicycle_id])
-    redirect_to bicycle_path(@bicycle)
+    #redirect_to bicycle_maintenances_path(@bicycle)
+    redirect_to request.referer || root_path
+
   end
 
   private

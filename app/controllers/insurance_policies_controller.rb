@@ -44,8 +44,9 @@ class InsurancePoliciesController < ApplicationController
   end
 
   def destroy
-    # @insurance_policy.destroy
+    @insurance_policy.destroy
     # redirect_to bicycle_insurance_policies_path, notice: 'Insurance policy was successfully destroyed.'
+    redirect_to request.referer || root_path
   end
 
   private
