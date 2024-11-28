@@ -1,14 +1,22 @@
 <h3>"Bicycles should appear here"</h3>
 
 <% if @bicycles.count > 0 %>
-
-<ul>
+<div class="container grid card-container bg-white" id="card-container">
+<div class="row">
+<%  6.times do %>
   <% @bicycles.each do |bicycle| %>
-  <p>
-<%= link_to bicycle.name, bicycle_path(bicycle) %>
-  </p>
-
- <% end %>
-</ul>
-
+    <div class="card col-sm-4 bike-card  p-0">
+    <div class="m-3 card-holder">
+      <img src="..." class="card-img-top" alt="Your bike here">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text"><%= link_to bicycle.name, bicycle_path(bicycle) %></p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    </div>
+  <% end %>
+<%end%>
+  </div>
+</div>
 <% end %>

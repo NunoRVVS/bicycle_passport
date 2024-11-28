@@ -1,5 +1,6 @@
 <div class="container">
   <% if user_signed_in? %>
+
     <p>Welcome <%= @user.name %>
     <br>
     <%= image_tag "Bike.png", alt: "Bike image", class: "rounded" %>
@@ -42,6 +43,9 @@
 
     <%= render "shared/footer" %>
     
+
+    <%= render "userhome" %>
+
    <% else %>
 
       <%= render "landing_page" %>

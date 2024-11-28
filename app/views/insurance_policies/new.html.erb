@@ -1,5 +1,5 @@
 <h1>New Insurance Policy</h1>
-<%= form_with model: @insurance_policy, local: true do |form| %>
+<%= form_with model: [@bicycle, @insurance_policy], local: true do |form| %>
   <div>
     <%= form.label :insurer %>
     <%= form.text_field :insurer %>
@@ -11,10 +11,6 @@
   <div>
     <%= form.label :description %>
     <%= form.text_area :description %>
-  </div>
-  <div>
-    <%= form.label :bicycle_id %>
-    <%= form.text_field :bicycle_id %>
   </div>
   <div>
     <%= form.submit %>

@@ -1,0 +1,30 @@
+h1 {
+  font-size: 46;
+  font-weight: bold;
+  color: $primary-green;
+}
+
+h2{
+  font-size: 24;
+  font-weight: bold;
+  color: $black;
+}
+
+h3{
+  font-size: 14;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: $black;
+}
+
+p{
+  font-size: 14;
+  font-weight: regular;
+  color: $light-mode-text;
+}
+a{
+  font-size: 16;
+  font-weight: 550;
+  text-transform: uppercase;
+  color: $black;
+}

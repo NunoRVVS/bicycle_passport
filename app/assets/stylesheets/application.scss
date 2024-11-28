@@ -10,6 +10,14 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/userhome";
+
+@import "components/defaults";
+
+// Cards
+@import "components/bike_card";
+@import "components/card_container";
+
 
 // Mapbox Functionality
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
