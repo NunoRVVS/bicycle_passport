@@ -21,7 +21,7 @@
     align-items: center;
 }
 
-.navbar-items a{
+.navbar-items a {
   // border: 1px solid rgb(37, 10, 213);
 
   color:aliceblue;
@@ -33,7 +33,8 @@
 }
 
 .nav-item {
-  list-style-type: none
+  list-style-type: none;
+  text-decoration: none;
 }
 
 .main-nav-holder{
@@ -41,4 +42,16 @@
   border-radius: 7px;
   width:500px;
   margin-right: 350px;
+}
+
+a {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+button {
+  background-color: orange;
+  border-radius: 5px;
+  width: 120px;
+  height:35px
 }
