@@ -1,4 +1,41 @@
-<h1>Rides#new</h1>
-<p>Find me in app/views/rides/new.html.erb</p>
+<!-- app/views/rides/new.html.erb -->
+<div class="container mt-5">
+  <h1 class="mb-4">New Ride</h1>
+  <%= form_with model: @ride, local: true, class: "form" do |form| %>
+    <div data-controller="map">
+      <div id="map" data-map-target="map" style="height: 400px; width: 100%;" class="mb-4"></div>
 
-<%= render "form", ride: @ride, user: @user %>
+      <div class="mb-3">
+        <%= form.label :start_point, class: "form-label" %>
+        <%= form.text_field :start_point, class: "form-control", data: { map_target: "startPoint" } %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :end_point, class: "form-label" %>
+        <%= form.text_field :end_point, class: "form-control", data: { map_target: "endPoint" } %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <%= form.label :start_date, class: "form-label" %>
+        <%= form.datetime_select :start_date, class: "form-control" %>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <%= form.label :end_date, class: "form-label" %>
+        <%= form.datetime_select :end_date, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :distance, class: "form-label" %>
+      <%= form.number_field :distance, step: 0.1, class: "form-control" %>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <%= form.submit "Save Ride", class: "btn btn-primary" %>
+      <%= link_to "Back", rides_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+</div>

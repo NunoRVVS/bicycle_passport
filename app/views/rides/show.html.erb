@@ -1,2 +1,13 @@
-<h1>Rides#show</h1>
-<p>Find me in app/views/rides/show.html.erb</p>
+<div class="container mt-5">
+  <h1>Ride Details</h1>
+  <p><strong>Start Point:</strong> <%= @ride.start_point %></p>
+  <p><strong>End Point:</strong> <%= @ride.end_point %></p>
+  <p><strong>Distance:</strong> <%= @ride.distance %> km</p>
+  <p><strong>Start Date:</strong> <%= @ride.start_date.strftime('%d %b %Y, %H:%M') %></p>
+  <p><strong>End Date:</strong> <%= @ride.end_date.strftime('%d %b %Y, %H:%M') %></p>
+
+  <div data-controller="map">
+    <div data-map-target="map" id="map" style="height: 400px;"></div>
+  </div>
+  <%= link_to "Back", rides_path, class: "btn btn-secondary" %>
+</div>

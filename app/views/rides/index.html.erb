@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <h1 class="mb-4">Rides</h1>
+  <%= link_to "New Ride", new_ride_path, class: "btn btn-success mb-3" %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Start Point</th>
+        <th>End Point</th>
+        <th>Distance</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rides.each do |ride| %>
+        <tr>
+          <td><%= ride.start_point %></td>
+          <td><%= ride.end_point %></td>
+          <td><%= ride.distance %> km</td>
+          <td>
+            <%= link_to "Show", ride_path(ride), class: "btn btn-primary btn-sm" %>
+            <%= link_to "Edit", edit_ride_path(ride), class: "btn btn-warning btn-sm" %>
+            <%= link_to "Delete", ride_path(ride), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,10 +1,24 @@
 class RidesController < ApplicationController
-  def show
+  def index
     @rides = Ride.all
+  end
+
+  def show
+    @ride = Ride.find(params[:id])
   end
 
   def new
     @ride = Ride.new
+  end
+
+  def create
+    @ride = Ride.new(ride_params)
+    @ride.user = current_user
+    if @ride.save
+      redirect_to ride_path(@ride), notice: 'Ride was successfully created.'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -13,27 +27,22 @@ class RidesController < ApplicationController
 
   def update
     @ride = Ride.find(params[:id])
-    @ride.update(ride_params)
-
-    redirect_to ride_path(@ride)
-  end
-
-  def create
-    @ride = Ride.new(ride_params)
-    @user = current_user
-    @ride.user = current_user
-    @ride
+    if @ride.update(ride_params)
+      redirect_to ride_path(@ride), notice: 'Ride was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
     @ride = Ride.find(params[:id])
     @ride.destroy
-    redirect_to rides_path, status: :see_other
+    redirect_to rides_path, notice: 'Ride was successfully destroyed.'
   end
 
   private
 
   def ride_params
-    params.require(:ride).permit(:name, :start_lat, :start_long, :end_lat, :end_long, :start_date, :start_time, :end_time, :end_date, :distance, :user)
+    params.require(:ride).permit(:start_point, :end_point, :start_date, :end_date, :distance)
   end
 end
