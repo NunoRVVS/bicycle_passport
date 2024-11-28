@@ -1,0 +1,176 @@
+    <p>Welcome <%= @user.name %>
+    <br>
+    <%= image_tag "Bike.png", alt: "Bike image", class: "rounded" %>
+
+    <div class="edges d-flex justify-content-between">
+      <div>
+        <h1>Bike Name font CONQUERA</h1>
+        <h3><strong>Bike Brand/Model</strong></h3>
+      </div>
+      <div>
+        <%= link_to "Share", "/#", class: "btn btn-warning" %>
+      </div>
+    </div>
+
+    <p>This is a long description of the bike, here we would have a long text that describes the bike in a long form that would ask us to use a See more.. button.</p>
+
+
+    <%= link_to "Details", class: "navbar-brand" do %>
+      <i class="fa-solid fa-circle-info"></i>
+    <% end %>
+
+    <%= link_to "Rides", class: "navbar-brand" do %>
+      <i class="fa-solid fa-bicycle"></i>
+    <% end %>
+
+    <%= link_to "Log Book", class: "navbar-brand" do %>
+      <i class="fa-solid fa-book"></i>
+    <% end %>
+
+
+          <% if defined?(@bicycles) %>
+            <% @bicycles.each do |bicycle| %>
+              <p>One of the bicycles is <%= bicycle.name %></p>
+            <% end %>
+          <% end %>
+
+          <% if !defined?(@bicycles) %>
+            <p>No bicycles are created</p>
+          <% end %>
+<hr>
+
+<div class="Details">
+  <div class="d-flex justify-content-between edges">
+  <h3>Details</h3>
+    <div>
+        <%= link_to "See all", "#", class: "btn btn-confirm" %>
+    </div>
+  </div>
+
+  <div class="cards d-flex justify-content-between">
+      <div class="card" style="width: 18rem;">
+        <%= image_tag "carbon-wheel.jpg", alt: "wheel", class: "rounded", style: "width:200px;" %>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <%= image_tag "carbon-wheel.jpg", alt: "wheel", class: "rounded", style: "width:200px;" %>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <%= image_tag "carbon-wheel.jpg", alt: "wheel", class: "rounded", style: "width:200px;" %>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <%= image_tag "carbon-wheel.jpg", alt: "wheel", class: "rounded", style: "width:200px;" %>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+  </div>
+
+</div>
+<hr>
+<div class="Rides">
+  <div class="d-flex">
+      <%= image_tag "illustration.jpg", alt: "wheel", class: "rounded", style: "width:600px;" %>
+      <div class="right">
+        <div class="head d-flex justify-content-between edges">
+          <h3>Rides</h3>
+          <div>
+            <%= link_to "See full history", "#", class: "btn btn-confirm" %>
+          </div>
+        </div>
+        <div class="body-list">
+          <div class="card">
+            <div class=" card-body ">
+              <div class="first-line d-flex justify-content-between">
+                <p class="event-name">Name of the ride</p><p class="event-date">Event date</p>
+              </div>
+              <div class="second-line d-flex justify-content-between">
+                <span class="route">From start place to end place</span><span class="route-length">Length in km</span>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class=" card-body ">
+              <div class="first-line d-flex justify-content-between">
+                <p class="event-name">Name of the ride</p><p class="event-date">Event date</p>
+              </div>
+              <div class="second-line d-flex justify-content-between">
+                <span class="route">From start place to end place</span><span class="route-length">Length in km</span>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class=" card-body ">
+              <div class="first-line d-flex justify-content-between">
+                <p class="event-name">Name of the ride</p><p class="event-date">Event date</p>
+              </div>
+              <div class="second-line d-flex justify-content-between">
+                <span class="route">From start place to end place</span><span class="route-length">Length in km</span>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class=" card-body ">
+              <div class="first-line d-flex justify-content-between">
+                <p class="event-name">Name of the ride</p><p class="event-date">Event date</p>
+              </div>
+              <div class="second-line d-flex justify-content-between">
+                <span class="route">From start place to end place</span><span class="route-length">Length in km</span>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class=" card-body ">
+              <div class="first-line d-flex justify-content-between">
+                <p class="event-name">Name of the ride</p><p class="event-date">Event date</p>
+              </div>
+              <div class="second-line d-flex justify-content-between">
+                <span class="route">From start place to end place</span><span class="route-length">Length in km</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+<hr>
+<div class="Log Book">
+  <div class="head d-flex justify-content-between edges">
+    <h3>Log Book</h3>
+    <div>
+      <%= link_to "See full history", "#", class: "btn btn-default" %>
+    </div>
+  </div>
+        <div class="maintenance-list">
+          <div class="card">
+            <div class=" card-body ">
+              <div class="second-line d-flex justify-content-between">
+                <span class="maintenance">From start place to end place</span><span class="shop-name">Length in km</span>
+                <span class="route">From start place to end place</span><span class="route-length">Length in km</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+</div>
