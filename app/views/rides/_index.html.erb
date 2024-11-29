@@ -8,7 +8,7 @@
       <%# <img src="..." class="card-img-top" alt="Your bike here"> %>
       <% if ride.photo.present? %>
       <div class="m-3 d-flex align-content-center justify-content-center">
-      <%= cl_image_tag bicycle.photo.key, height: 250, width: 350, crop: :fill %>
+      <%= cl_image_tag ride.photo.key, height: 250, width: 350, crop: :fill %>
       </div>
       <% end %>
       <div class="card-body">
