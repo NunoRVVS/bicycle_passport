@@ -1,6 +1,21 @@
 class RidesController < ApplicationController
-  def show
+  def index
     @rides = Ride.all
+    @user = current_user
+  end
+
+  def show
+    @ride = Ride.find(params[:id])
+    @user = current_user
+
+    @markers = [ {
+      lat: @ride.start_lat,
+      lng: @ride.start_long
+    },{
+      lat: @ride.end_lat,
+      lng: @ride.end_long
+    }]
+    
   end
 
   def new
@@ -34,6 +49,7 @@ class RidesController < ApplicationController
 
   def my_rides
     @rides = Ride.select {|ride| ride.user == current_user}
+    @user = current_user
   end
 
   private
@@ -45,12 +61,12 @@ class RidesController < ApplicationController
   def ride_params_from_form
     result_start = Geocoder.search(params[:ride][:start_lat])
     result_end = Geocoder.search(params[:ride][:end_lat])
-    #raise
+
     params[:ride][:start_lat] = result_start.first.coordinates[0].to_f
     params[:ride][:start_long] = result_start.first.coordinates[1].to_f
     params[:ride][:end_lat] = result_end.first.coordinates[0].to_f
     params[:ride][:end_long] = result_end.first.coordinates[1].to_f
-
+    raise
     ride_params
    # params.require(:ride).permit(:name, :start_lat, :start_long, :end_lat, :end_long, :start_date, :start_time, :end_time, :end_date, :distance, :user)
   end
