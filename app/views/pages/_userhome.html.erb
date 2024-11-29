@@ -133,16 +133,18 @@
     </div>
   </div>
     <div class="maintenance-list">
+      <div class="row justify-content-center">
       <% @featured_maintenances.each do |maintenance| %>
       <div class="card">
         <div class=" card-body ">
           <div class="second-line d-flex justify-content-between">
-            <span class="maintenance"><%= maintenance.description %></span><span class="shop-name"><%= maintenance.shop %> </span>
-            <span class="route"><%= maintenance.date %> </span>
-            <%# <span class="route-length">Length in km</span> %>
+            <span class="maintenance col-4 text-start"><%= maintenance.description %></span>
+            <span class="shop-name col-3 text-center"><%= maintenance.shop %> </span>
+            <span class="route col-4 text-end"><%= maintenance.date %> </span>
           </div>
         </div>
       </div>
       <% end %>
   </div>
+</div>
 </div>
