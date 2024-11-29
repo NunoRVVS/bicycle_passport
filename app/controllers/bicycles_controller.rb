@@ -11,6 +11,10 @@ class BicyclesController < ApplicationController
     @bicycle = Bicycle.find(params[:id])
     @maintenances = Maintenance.where(bicycle: @bicycle.id)
     @featured_maintenances = Maintenance.where(bicycle: @bicycle.id).first(3)
+    @rides = Ride.where(user_id: @bicycle.id)
+    @featured_rides = Ride.where(user_id: @bicycle.id).first(5)
+    @components = Component.all
+    @featured_components = Component.first(4)
   end
 
   def bike_rack

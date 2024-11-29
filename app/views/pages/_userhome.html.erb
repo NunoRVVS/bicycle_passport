@@ -43,46 +43,26 @@
   <div class="d-flex justify-content-between edges">
   <h3>Details</h3>
     <div>
-        <%= link_to "See all", "#", class: "btn btn-confirm" %>
+        <%= link_to "See all", "bicycles/#{@bicycle.id}/components", class: "btn btn-confirm" %>
     </div>
   </div>
 
   <div class="cards d-flex justify-content-between">
+
+  <% @featured_components.each do |component| %>
       <div class="card" style="width: 18rem;">
-        <%= image_tag "carbon-wheel.jpg", alt: "wheel", class: "rounded", style: "width:200px;" %>
+        <%= image_tag "", alt: "wheel", class: "rounded", style: "width:200px;" %>
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title"><%= component.name %></h5>
+
+          <p class="card-text"><%= component.make %></p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
 
-      <div class="card" style="width: 18rem;">
-        <%= image_tag "carbon-wheel.jpg", alt: "wheel", class: "rounded", style: "width:200px;" %>
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
+<% end %>
 
-      <div class="card" style="width: 18rem;">
-        <%= image_tag "carbon-wheel.jpg", alt: "wheel", class: "rounded", style: "width:200px;" %>
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
 
-      <div class="card" style="width: 18rem;">
-        <%= image_tag "carbon-wheel.jpg", alt: "wheel", class: "rounded", style: "width:200px;" %>
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
   </div>
 
 </div>
@@ -94,7 +74,7 @@
         <div class="head d-flex justify-content-between edges">
           <h3>Rides</h3>
           <div>
-            <%= link_to "See full history", "#", class: "btn btn-confirm" %>
+            <%= link_to "See full history", "/bicycles/#{@bicycle.id}/rides", class: "btn btn-confirm" %>
           </div>
         </div>
         <div class="body-list">
@@ -138,16 +118,7 @@
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class=" card-body ">
-              <div class="first-line d-flex justify-content-between">
-                <p class="event-name">Name of the ride</p><p class="event-date">Event date</p>
-              </div>
-              <div class="second-line d-flex justify-content-between">
-                <span class="route">From start place to end place</span><span class="route-length">Length in km</span>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
   </div>
