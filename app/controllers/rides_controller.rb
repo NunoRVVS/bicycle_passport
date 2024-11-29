@@ -15,7 +15,7 @@ class RidesController < ApplicationController
       lat: @ride.end_lat,
       lng: @ride.end_long
     }]
-    
+
   end
 
   def new
@@ -66,7 +66,7 @@ class RidesController < ApplicationController
     params[:ride][:start_long] = result_start.first.coordinates[1].to_f
     params[:ride][:end_lat] = result_end.first.coordinates[0].to_f
     params[:ride][:end_long] = result_end.first.coordinates[1].to_f
-    raise
+
     ride_params
    # params.require(:ride).permit(:name, :start_lat, :start_long, :end_lat, :end_long, :start_date, :start_time, :end_time, :end_date, :distance, :user)
   end

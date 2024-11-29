@@ -4,29 +4,19 @@
 
     <div class="edges d-flex justify-content-between">
       <div>
-        <h1>Bike Name font CONQUERA</h1>
-        <h3><strong>Bike Brand/Model</strong></h3>
+        <h1><%= @bicycle.name %></h1>
+        <h3><strong><%=@bicycle.make  %></strong></h3>
       </div>
       <div>
         <%= link_to "Share", "/#", class: "btn btn-warning" %>
       </div>
     </div>
 
-    <p>This is a long description of the bike, here we would have a long text that describes the bike in a long form that would ask us to use a See more.. button.</p>
+    <p><strong><%=@bicycle.description  %></strong></p>
 
-
-    <%= link_to "Details", class: "navbar-brand" do %>
-      <i class="fa-solid fa-circle-info"></i>
-    <% end %>
-
-    <%= link_to "Rides", class: "navbar-brand" do %>
-      <i class="fa-solid fa-bicycle"></i>
-    <% end %>
-
-    <%= link_to "Log Book", class: "navbar-brand" do %>
-      <i class="fa-solid fa-book"></i>
-    <% end %>
-
+    <a href="#details"><i class="fa-solid fa-circle-info"></i></a>
+    <a href="#rides"><i class="fa-solid fa-bicycle"></i></a>
+    <a href="#log_book"><i class="fa-solid fa-book"></i></a>
 
           <% if defined?(@bicycles) %>
             <% @bicycles.each do |bicycle| %>
@@ -39,7 +29,7 @@
           <% end %>
 <hr>
 
-<div class="Details">
+<div id="details">
   <div class="d-flex justify-content-between edges">
   <h3>Details</h3>
     <div>
@@ -67,9 +57,14 @@
 
 </div>
 <hr>
-<div class="Rides">
+<div id="rides">
   <div class="d-flex">
-      <%= image_tag "illustration.jpg", alt: "wheel", class: "rounded", style: "width:550px;" %>
+      <%# <%= image_tag "illustration.jpg", alt: "wheel", class: "rounded", style: "width:550px;" %>
+      <div class="map-container" style="width: 100%; height: 295px; max-width:500px; margin-top:40px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">
+      </div>
       <div class="right">
         <div class="head d-flex justify-content-between edges">
           <h3>Rides</h3>
@@ -78,46 +73,20 @@
           </div>
         </div>
         <div class="body-list">
+        <% @rides.each do |ride| %>
           <div class="card">
             <div class=" card-body ">
               <div class="first-line d-flex justify-content-between">
-                <p class="event-name">Name of the ride</p><p class="event-date">Event date</p>
+                <p class="event-name"><%= ride.name %></p><p class="event-date"><%= ride.start_date %></p>
               </div>
               <div class="second-line d-flex justify-content-between">
-                <span class="route">From start place to end place</span><span class="route-length">Length in km</span>
+              <% results_start = Geocoder.search([ ride.start_lat, ride.start_long]) %>
+              <% results_end = Geocoder.search([ ride.end_lat, ride.end_long]) %>
+                <span class="route">From <%= results_start.first.city %> to  <%= results_end.first.city %> </span><span class="route-length"><%= ride.distance %> KM</span>
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class=" card-body ">
-              <div class="first-line d-flex justify-content-between">
-                <p class="event-name">Name of the ride</p><p class="event-date">Event date</p>
-              </div>
-              <div class="second-line d-flex justify-content-between">
-                <span class="route">From start place to end place</span><span class="route-length">Length in km</span>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class=" card-body ">
-              <div class="first-line d-flex justify-content-between">
-                <p class="event-name">Name of the ride</p><p class="event-date">Event date</p>
-              </div>
-              <div class="second-line d-flex justify-content-between">
-                <span class="route">From start place to end place</span><span class="route-length">Length in km</span>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class=" card-body ">
-              <div class="first-line d-flex justify-content-between">
-                <p class="event-name">Name of the ride</p><p class="event-date">Event date</p>
-              </div>
-              <div class="second-line d-flex justify-content-between">
-                <span class="route">From start place to end place</span><span class="route-length">Length in km</span>
-              </div>
-            </div>
-          </div>
+        <% end %>
 
         </div>
       </div>
@@ -125,7 +94,7 @@
 </div>
 
 <hr>
-<div class="Log Book">
+<div id="log_book">
   <div class="head d-flex justify-content-between edges">
     <h3>Log Book</h3>
     <div>
