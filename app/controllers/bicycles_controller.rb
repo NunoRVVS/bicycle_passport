@@ -9,6 +9,8 @@ class BicyclesController < ApplicationController
     @bicycles = Bicycle.all.select { |bike| bike.user == current_user }
     @user = current_user
     @bicycle = Bicycle.find(params[:id])
+    @maintenances = Maintenance.where(bicycle: @bicycle.id)
+    @featured_maintenances = Maintenance.where(bicycle: @bicycle.id).first(3)
   end
 
   def bike_rack
