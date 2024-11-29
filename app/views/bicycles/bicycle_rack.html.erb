@@ -1,27 +1,42 @@
 <h1 class="d-flex justify-content-center"> YOUR RACK </h1>
 
-<% if !@bicycles.nil? && @bicycles.count > 0 %>
+
 <div class="container grid card-container bg-white" id="card-container">
 <div class="row">
+<% if !@bicycles.nil? && @bicycles.count > 0 %>
 <%  6.times do %>
   <% @bicycles.each do |bicycle| %>
     <div class="card col-sm-4 bike-card p-0">
-    <div class="m-3 card-holder">
-      <%# <img src="..." class="card-img-top" alt="Your bike here"> %>
-      <% if bicycle.photo.present? %>
-      <div class="m-3 d-flex align-content-center justify-content-center">
-      <%= cl_image_tag bicycle.photo.key, height: 250, width: 350, crop: :fill %>
+      <div class="m-3 card-holder">
+        <%# <img src="..." class="card-img-top" alt="Your bike here"> %>
+        <% if bicycle.photo.present? %>
+        <div class="m-3 d-flex align-content-center justify-content-center">
+        <%= cl_image_tag bicycle.photo.key, height: 250, width: 350, crop: :fill %>
+        </div>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"> <%= link_to bicycle.name, bicycle_path(bicycle), class:'stretched-link' %></h5>
+          <p class="card-text"><%= bicycle.make %> <%= bicycle.category %> </p>
+        </div>
       </div>
-      <% end %>
-      <div class="card-body">
-        <h5 class="card-title"> <%= link_to bicycle.name, bicycle_path(bicycle), class:'stretched-link' %></h5>
-        <p class="card-text"><%= bicycle.make %> <%= bicycle.category %> </p>
-
-      </div>
-    </div>
     </div>
   <% end %>
 <%end%>
+<% end %>
+   <div class="card col-sm-4 bike-card p-0">
+      <div class="m-3 card-holder">
+        <%# <img src="..." class="card-img-top" alt="Your bike here"> %>
+
+        <div class="m-3 d-flex align-content-center justify-content-center">
+        <%=image_tag "bike-outline", height: 250, width: 350, crop: :fill %>
+        </div>
+
+        <div class="card-body">
+          <h5 class="card-title"> <%= link_to "Add Your Bicycle", new_bicycle_path , class:'stretched-link' %></h5>
+          <%# <p class="card-text"><%= bicycle.make <%= bicycle.category </p> %>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
-<% end %>
