@@ -13,7 +13,9 @@
 # User.destroy_all
 # Component.destroy_all
 
-# User.create!(name:"Joao", email:"joao1@mail.com", password:"123456")
+ User.create!(name:"Joao", email:"joao1@mail.com", password:"123456")
+ User.create!(name:"Manel", email:"manel@mail.com", password:"123456")
+
 
 bicycle = Bicycle.create!(name: 'My Bike',
                           category: 'Mountain',
