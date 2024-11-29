@@ -110,3 +110,49 @@ Component.create!(name: "UD-3K",
 make:"Superlogic",
 serial_number: "P1iM92ux",
 description: "Glossy Carbon Bicycle Handlebar, New Drop Bar, Road Bike, 400mm, 420mm, 440mm")
+
+
+Ride.create(
+    name: "Coastal Fever",
+    start_lat: 38.698032,
+    start_date: "10 Nov 2024",
+    end_date: " 10 Nov 2024",
+    user_id: 2,
+    start_long: -9.420665,
+    end_lat: 38.69022,
+    end_long: -9.335598,
+    distance: 9.0)
+
+Ride.create(
+  name: "Downhill Panic",
+  start_lat: 38.795944,
+  start_date: "15 Nov 2024",
+  end_date: "15 Nov 2024",
+  user_id: 2,
+  start_long: -9.38959,
+  end_lat: -19.96758,
+  end_long: -43.957814,
+  distance: 15.0)
+
+Ride.create(
+  name: "Pasta-eater jumble",
+  start_lat: 45.463945,
+  start_date: "20 Nov 2024",
+  end_date: "20 Nov 2024",
+  user_id: 2,
+  start_long: 9.188558,
+  end_lat: 41.899986,
+  end_long: 12.476713,
+  distance: 477.3)
+
+
+Ride.create(
+  name: "PasteisDeBelemHunger",
+  start_lat: 38.693264,
+  start_date: "25 Nov 2024",
+  end_date: "25 Nov 2024",
+  user_id: 2,
+  start_long: -9.308493,
+  end_lat: -1.45056,
+  end_long: -48.4682,
+  distance: 11.0)

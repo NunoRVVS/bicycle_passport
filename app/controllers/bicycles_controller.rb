@@ -11,10 +11,20 @@ class BicyclesController < ApplicationController
     @bicycle = Bicycle.find(params[:id])
     @maintenances = Maintenance.where(bicycle: @bicycle.id)
     @featured_maintenances = Maintenance.where(bicycle: @bicycle.id).first(3)
-    @rides = Ride.where(user_id: @bicycle.id)
-    @featured_rides = Ride.where(user_id: @bicycle.id).first(5)
+    @rides = Ride.where(user_id: current_user)
+    @featured_rides = Ride.where(user_id: current_user).first(5)
     @components = Component.all
     @featured_components = Component.first(4)
+
+    @ride = Ride.find(params[:id])
+
+    @markers = [ {
+      lat: @ride.start_lat,
+      lng: @ride.start_long
+    },{
+      lat: @ride.end_lat,
+      lng: @ride.end_long
+    }]
   end
 
   def bike_rack
