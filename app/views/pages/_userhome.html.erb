@@ -1,5 +1,5 @@
     <div class="img-header-holder">
-      <%= image_tag "Bike.png", alt: "Bike image", class: "rounded" %>
+      <%= image_tag "Giant.jpg", alt: "Bike image", class: "rounded" %>
     </div>
 
     <div class="edges d-flex justify-content-between">
@@ -33,7 +33,7 @@
   <div class="d-flex justify-content-between edges">
   <h3>Details</h3>
     <div>
-        <%= link_to "See all", "bicycles/#{@bicycle.id}/components", class: "btn btn-confirm" %>
+        <%= link_to "See all", "#{@bicycle.id}/components", class: "btn btn-confirm" %>
     </div>
   </div>
 
@@ -41,7 +41,7 @@
 
   <% @featured_components.each do |component| %>
       <div class="card" style="width: 18rem;">
-        <%= image_tag "", alt: "wheel", class: "rounded", style: "width:200px;" %>
+        <%= image_tag "carbon-wheel.jpg", alt: "wheel", class: "rounded", style: "width:200px;" %>
         <div class="card-body">
           <h5 class="card-title"><%= component.name %></h5>
 
@@ -69,7 +69,7 @@
         <div class="head d-flex justify-content-between edges">
           <h3>Rides</h3>
           <div>
-            <%= link_to "See full history", "/bicycles/#{@bicycle.id}/rides", class: "btn btn-confirm" %>
+            <%= link_to "See full history", "/rides", class: "btn btn-confirm" %>
           </div>
         </div>
         <div class="body-list">
