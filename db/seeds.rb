@@ -7,14 +7,13 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-InsurancePolicy.destroy_all
-Maintenance.destroy_all
-Bicycle.destroy_all
-User.destroy_all
-Component.destroy_all
+# InsurancePolicy.destroy_all
+# Maintenance.destroy_all
+# Bicycle.destroy_all
+# User.destroy_all
+# Component.destroy_all
 
-User.create!(name:"Joao", email:"joao@mail.com", password:"123456")
-
+User.create!(name:"Joao", email:"joao1@mail.com", password:"123456")
 
 bicycle = Bicycle.create!(name: 'My Bike',
                           category: 'Mountain',
@@ -25,6 +24,13 @@ bicycle = Bicycle.create!(name: 'My Bike',
 
 InsurancePolicy.create!(insurer: 'XYZ Insurance', policy_number: '12345', description: 'Basic coverage', bicycle: bicycle)
 Maintenance.create!(date: Date.today, shop: 'Bike Fix', description: 'Tire replacement', bicycle: bicycle)
+Maintenance.create!(date: "2024-11-30", shop: 'Balfes', description: '1st revision', bicycle: bicycle)
+Maintenance.create!(date: "2024-12-22", shop: 'Vluption', description: 'Crank repair', bicycle: bicycle)
+Maintenance.create!(date: "2025-02-15", shop: 'Greenwich Bike Shop', description: '1st gear revision', bicycle: bicycle)
+Maintenance.create!(date: "2025-05-01", shop: 'Greenwich Bike Shop', description: '6 month revision', bicycle: bicycle)
+Maintenance.create!(date: "2025-03-20", shop: 'Greenwich Bike Shop', description: 'Race Full Bike Check up', bicycle: bicycle)
+Maintenance.create!(date: "2025-08-01", shop: 'No Stress Bike Shop', description: 'New wheel pair set up (due temporary stock shortage there is a delay and due time is for the 1st of August)', bicycle: bicycle)
+
 
 Component.create!(name: "Rim",
                 make:"Bontrager",
