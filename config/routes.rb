@@ -11,8 +11,13 @@ Rails.application.routes.draw do
   resources :users do
     resources :rides, only: [:show, :create, :new, :edit, :destroy, :update]
   end
-  resources :bicycles
-  resources :components
+
+  resources :bicycles do
+  resources :components, only: [:index]
+  end
+
+  resources :components, only: [:show, :create, :new, :edit, :destroy, :update]
+
   resources :bicycle_components
   # resources :insurance_policies
   # resources :warranties
