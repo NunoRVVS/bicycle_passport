@@ -12,11 +12,7 @@ Rails.application.routes.draw do
     resources :rides, only: [:show, :create, :new, :edit, :destroy, :update]
   end
 
-  resources :bicycles do
-  resources :components, only: [:index]
-  end
-
-  resources :components, only: [:show, :create, :new, :edit, :destroy, :update]
+resources :components, only: [:show, :create, :new, :edit, :destroy, :update]
 
   resources :bicycle_components
   # resources :insurance_policies
@@ -28,13 +24,12 @@ Rails.application.routes.draw do
   get "/my_rides", to: "rides#my_rides", as: :my_rides
   resources :rides, only: [:index]
 
-
-  Rails.application.routes.draw do
-    resources :bicycles do
-      resources :maintenances, only: [:new, :create, :index, :update]
-      resources :warranties, only: [:new, :create, :index, :update]
-      resources :insurance_policies, only: [:new, :create, :index, :update]
-    end
+  resources :bicycles do
+    resources :components, only: [:index]
+    resources :maintenances, only: [:new, :create, :index, :update]
+    resources :warranties, only: [:new, :create, :index, :update]
+    resources :insurance_policies, only: [:new, :create, :index, :update]
+  end
 
     resources :maintenances, only: [:destroy]
     resources :warranties, only: [:destroy]
@@ -43,5 +38,4 @@ Rails.application.routes.draw do
   end
 
   # Defines the root path route ("/")
-  # root "posts#index"
-end
+  # root "posts#index
