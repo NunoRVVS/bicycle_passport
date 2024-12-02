@@ -1,23 +1,24 @@
 
 <div class="container my-3">
-  <div class="row justify-content-center">
-    <h3>List of maintenances</h3>
+  <div class="d-flex justify-content-center mb-3">
+    <h1>List of maintenances</h1>
   </div>
-  <div class="maintenances">
+  <div class="maintenances d-flex align-content-center flex-wrap">
     <% @maintenances.each do |maintenance| %>
-      <div class="my-3">
-        <p><%= maintenance.shop %></p>
-        <p><%= maintenance.date %></p>
-        <p><%= maintenance.description %></p>
-        <%= link_to "Delete", maintenance_path(maintenance),
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-
-
-      <hr>
+      <div class="card col-sm-4 bike-card p-0 text-center" style="">
+        <div class="m-3 p-2 card-holder">
+          <h6><%= maintenance.shop %></h6>
+          <hr>
+          <p><%= maintenance.date %></p>
+          <p><%= maintenance.description %></p>
+          <hr class="p-1">
+          <%= link_to "Delete", maintenance_path(maintenance),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+        </div>
       </div>
     <% end %>
   </div>
-<%= link_to "Add a maintenance", new_bicycle_maintenance_path %>
-
-
+  <button>
+    <%= link_to "Add a maintenance", new_bicycle_maintenance_path %>
+  </button>
 </div>
