@@ -1,9 +1,10 @@
-<div class="container grid card-container bg-white" id="card-container">
+<div class="container grid card-container bg-white mt-5" id="card-container">
+<h1 class="d-flex justify-content-center"> Popular Rides </h1>
 <div class="row">
 
 <% if !@rides.nil? && @rides.count > 0 %>
   <% @rides.each do |ride| %>
-    <div class="card col-sm-4 bike-card p-0">
+    <div class="card col-sm-4 bike-card p-0 mt-5">
     <div class="m-3 card-holder text-wrap" style="height:400px;">
       <%# <img src="..." class="card-img-top" alt="Your bike here"> %>
       <% if ride.photo.present? %>
