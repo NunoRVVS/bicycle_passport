@@ -39,15 +39,30 @@ class BicyclesController < ApplicationController
   def create
 
     @bicycle = Bicycle.new(bicycle_params)
+
+    if params[:bicycle][:favourite] == "true"
+      Bicycle.all.select {|bike| bike.user == current_user}.each do |b2|
+        b2.favourite = false
+        b2.save
+      end
+    end
     @bicycle.user = current_user
     @bicycle.save
     redirect_to bicycle_path(@bicycle)
   end
 
   def edit
+    @bicycle = Bicycle.find(params[:id])
   end
 
   def update
+
+    if params[:bicycle][:favourite] == "true"
+      Bicycle.all.select {|bike| bike.user == current_user}.each do |b2|
+        b2.favourite = false
+        b2.save
+      end
+    end
     @bicycle.update(bicycle_params)
     redirect_to bicycle_path(@bicycle)
   end
