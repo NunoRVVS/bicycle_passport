@@ -1,4 +1,4 @@
-<%= simple_form_for [@user, @ride] do |f| %>
+<%= simple_form_for [@ride] do |f| %>
   <%=  f.input :name, as: :string %>
   <%=  f.input :start_lat, label: 'Starting Location', as: :string %>
   <%=  f.input :end_lat, label: 'Ending Location', as: :string %>

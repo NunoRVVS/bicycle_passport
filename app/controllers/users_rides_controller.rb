@@ -1,9 +1,15 @@
 class UsersRidesController < ApplicationController
   def new
-    @ride = Ride.find(params[:ride_id])
-    @bike = Bicycle.find(params[:bicycle_id])
+
+    @ride = Ride.find(params["ride_id"])
+    raise
+    # @bike = Bicycle.find(params[:bicycle_id])
     @user = current_user
     @user_ride = UsersRide.new
+  end
+
+  def index
+    @usersrides = UsersRide.all
   end
 
   def create
