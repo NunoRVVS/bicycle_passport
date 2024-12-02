@@ -4,7 +4,7 @@
 <div class="container grid card-container bg-white" id="card-container">
 <div class="row">
 <% if !@bicycles.nil? && @bicycles.count > 0 %>
-<%  6.times do %>
+
   <% @bicycles.each do |bicycle| %>
     <div class="card col-sm-4 bike-card p-0">
       <div class="m-3 card-holder">
@@ -20,7 +20,6 @@
         </div>
       </div>
     </div>
-  <% end %>
 <%end%>
 <% end %>
    <div class="card col-sm-4 bike-card p-0" style="opacity:0.45">

@@ -16,18 +16,19 @@ class BicyclesController < ApplicationController
     @components = Component.all
     @featured_components = Component.first(4)
 
-    @ride = Ride.find(params[:id])
-
-    @markers = [ {
-      lat: @ride.start_lat,
-      lng: @ride.start_long
-    },{
-      lat: @ride.end_lat,
-      lng: @ride.end_long
-    }]
+    @ride = @rides.first
+    if !@ride.nil?
+      @markers = [ {
+        lat: @ride.start_lat,
+        lng: @ride.start_long
+      },{
+        lat: @ride.end_lat,
+        lng: @ride.end_long
+      }]
+    end
   end
 
-  def bike_rack
+  def bicycle_rack
   @bicycles = Bicycle.all.select { |bike| bike.user == current_user }
   end
 
