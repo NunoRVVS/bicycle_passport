@@ -10,7 +10,9 @@
   <%=  f.input :end_time, as: :time  %>
   <%=  f.input :distance, as: :integer  %>
   <%=  f.input :photo, as: :file  %>
-  <%=  f.submit "Submit Ride", class: "btn btn-primary" %>
+  <button>
+    <%= f.submit "Submit Ride", style:"background-color:#899687; border:none" %>
+  </button>
 <% end %>
 
 <%# data: { controller: "ride-creation", action: 'submit->ride-creation#grabCreation' } %>
