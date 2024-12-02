@@ -25,19 +25,10 @@
     </div>
   <% end %>
   <% end %>
-  <div class="card col-sm-4 bike-card p-0" style="opacity:0.45">
-      <div class="m-3 card-holder">
-        <%# <img src="..." class="card-img-top" alt="Your bike here"> %>
-
-        <div class="m-3 d-flex align-content-center justify-content-center">
-        <%=image_tag "blank map", height: 250, width: 350, crop: :fill %>
-        </div>
-
-        <div class="card-body">
-          <h5 class="card-title"> <%= link_to "Add a new ride", new_ride_user_ride_path(@user) , class:'stretched-link' %></h5>
-          <%# <p class="card-text"><%= bicycle.make <%= bicycle.category </p> %>
-        </div>
-      </div>
+    <div class="d-flex justify-content-center p-0 mt-2">
+      <button class="me-3">
+        <%= link_to "Back", bicycle_path(@user) %>
+      </button>
     </div>
   </div>
 
