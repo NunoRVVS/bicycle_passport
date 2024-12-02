@@ -2,6 +2,7 @@ class RidesController < ApplicationController
   def index
     @rides = Ride.all
     @user = current_user
+    @users = User.all
   end
 
   def show
@@ -15,7 +16,7 @@ class RidesController < ApplicationController
       lat: @ride.end_lat,
       lng: @ride.end_long
     }]
-
+# raise
   end
 
   def new

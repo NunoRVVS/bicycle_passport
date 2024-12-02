@@ -6,6 +6,6 @@
         <%=  f.input :description, as: :text  %>
         <%=  f.input :make, as: :text  %>
         <%=  f.input :photo, as: :file  %>
-        <%=  f.submit "Add Bicycle", class: "btn btn-primary" %>
+        <%= f.input :favourite, as: :select, collection: [['Yes',true], ['No',false]] %>
+        <%=  f.submit "Finalize", class: "btn btn-primary" %>
       <% end %>
-
