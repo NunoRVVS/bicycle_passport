@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
     @bicycles = Bicycle.all.select { |bike| bike.user == current_user }
     @user = current_user
-    @bicycle = @bicycles.first
+    @bicycle = @bicycles.select {|bike| bike.favourite == true}.first
     if !@bicycle.nil?
     @maintenances = Maintenance.where(bicycle: @bicycle.id)
     @featured_maintenances = Maintenance.where(bicycle: @bicycle.id).first(3)
@@ -24,7 +24,7 @@ class PagesController < ApplicationController
         lng: @ride.end_long
       }]
     end
-    
+
     if !@user.nil?
       if @bicycle.nil?
         redirect_to bicycle_rack_path
