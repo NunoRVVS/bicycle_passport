@@ -27,12 +27,12 @@
         <%# <img src="..." class="card-img-top" alt="Your bike here"> %>
 
         <div class="m-3 d-flex align-content-center justify-content-center">
-        <%=image_tag "bike-outline", height: 250, width: 350, crop: :fill %>
+        <%=image_tag "bike-outline", height: 250, width: 350, crop: :cover %>
         </div>
 
         <div class="card-body">
           <h5 class="card-title"> <%= link_to "Add Your Bicycle", new_bicycle_path , class:'stretched-link' %></h5>
-          <%# <p class="card-text"><%= bicycle.make <%= bicycle.category </p> %>
+          <p class="card-text">Dream Wheels</p>
         </div>
       </div>
     </div>
