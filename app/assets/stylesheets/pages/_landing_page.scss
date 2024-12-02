@@ -1,7 +1,43 @@
 .background_image {
-  background-image: url(JLaverack_Bike.jpg);
+  background-image: url('JLaverack_Bike.jpg');
   background-size: cover;
   background-position: center;
-  height: 1000px;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
 }
 
+.background_image:hover {
+  transform: scale(1.1); /* Zoom in when hovered */
+}
+
+/* footer */
+.content {
+  flex: 1;
+}
+
+.footer {
+  padding: 10px 0px;
+   font-size: 12px;
+}
+
+.list-inline-item {
+  color: white;
+}
+
+.list-inline-item i {
+  font-size: 1.5em;
+}
+
+.fab {
+  font-size: larger;
+}
+
+.fab:hover {
+  color: rgb(0, 81, 255);
+}
+
+#about {
+  color: white;
+}
