@@ -64,7 +64,7 @@ private
   end
 
   def bicycle_params
-    params.require(:bicycle).permit(:name, :category, :serial_number, :make, :description, :user_id, :photo)
+    params.require(:bicycle).permit(:name, :category, :serial_number, :make, :description, :user_id, :photo, :favourite)
   end
 
 end
