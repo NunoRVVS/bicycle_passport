@@ -39,7 +39,7 @@ class RidesController < ApplicationController
     @user = current_user
     @ride.user = current_user
     @ride.save
-    redirect_to user_ride_path(@user, @ride)
+    redirect_to my_rides_path(@user, @ride)
   end
 
   def destroy
