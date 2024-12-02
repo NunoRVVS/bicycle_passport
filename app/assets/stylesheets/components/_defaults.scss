@@ -28,3 +28,13 @@ a{
   text-transform: uppercase;
   color: $black;
 }
+
+button {
+  background-color: $grey-stroke;
+  border-radius: 4px;
+  height: 40px;
+  border: none;
+    &:hover {
+    opacity: 0.7;
+  }
+}
