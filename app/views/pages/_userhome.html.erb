@@ -29,17 +29,6 @@
     </div>
 
     <p><strong><%=@bicycle.description  %></strong></p>
-
-
-          <% if defined?(@bicycles) %>
-            <% @bicycles.each do |bicycle| %>
-              <p>One of the bicycles is <%= bicycle.name %></p>
-            <% end %>
-          <% end %>
-
-          <% if !defined?(@bicycles) %>
-            <p>No bicycles are created</p>
-          <% end %>
 <hr>
 
 <div id="details">
@@ -59,7 +48,7 @@
           <h5 class="card-title"><%= component.name %></h5>
 
           <p class="card-text"><%= component.make %></p>
-          <a href="#" class="btn btn-primary" style="background-color:#899687; border:none">Go somewhere</a>
+          <a href="#" class="btn btn-primary" style="background-color:#899687; border:none; color:black">Go somewhere</a>
         </div>
       </div>
 
