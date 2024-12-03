@@ -1,16 +1,26 @@
-    <div class="img-header-holder">
-      <%= image_tag "Giant.jpg", alt: "Bike image", class: "rounded" %>
+    <div class="img-header-holder d-flex justify-content-center">
+     <% if @bicycle.photo.present? %>
+      <%= cl_image_tag @bicycle.photo.key, alt: "Bike image", class: "rounded", height:850, crop: :fill %>
+    <% else %>
+      <%= image_tag "Giant.jpg", alt: "Bike image", class: "rounded", height:850, crop: :fill %>
+    <% end %>
     </div>
 
 
     <div class="edges d-flex justify-content-between">
-      <div>
-        <h1><%= @bicycle.name %></h1>
-        <h3><strong><%=@bicycle.make  %></strong></h3>
+      <div class="d-flex align-items-center">
+        <div>
+          <h1><%= @bicycle.name %></h1>
+          <h3><strong><%=@bicycle.make  %></strong>      <a href="#details"><i class="fa-solid fa-circle-info" style="font-size: 24px"></i></a>
+      <a href="#rides"><i class="fa-solid fa-bicycle" style="font-size: 24x"></i></a>
+      <a href="#log_book"><i class="fa-solid fa-book" style="font-size: 24px"></i></a>
+</h3>
+        </div>
+
       </div>
       <div class="d-flex">
       <div>
-        <%= link_to "Edit", edit_bicycle_path(@bicycle), class: "btn button" %>
+        <%= link_to "Edit", edit_bicycle_path(@bicycle), class: "btn button"%>
       </div>
       <div>
         <%= link_to "Share", "/#", class: "btn button" %>
@@ -19,20 +29,6 @@
     </div>
 
     <p><strong><%=@bicycle.description  %></strong></p>
-
-    <a href="#details"><i class="fa-solid fa-circle-info"></i></a>
-    <a href="#rides"><i class="fa-solid fa-bicycle"></i></a>
-    <a href="#log_book"><i class="fa-solid fa-book"></i></a>
-
-          <% if defined?(@bicycles) %>
-            <% @bicycles.each do |bicycle| %>
-              <p>One of the bicycles is <%= bicycle.name %></p>
-            <% end %>
-          <% end %>
-
-          <% if !defined?(@bicycles) %>
-            <p>No bicycles are created</p>
-          <% end %>
 <hr>
 
 <div id="details">
@@ -52,7 +48,7 @@
           <h5 class="card-title"><%= component.name %></h5>
 
           <p class="card-text"><%= component.make %></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="#" class="btn btn-primary" style="background-color:#899687; border:none; color:black">Go somewhere</a>
         </div>
       </div>
 
@@ -66,7 +62,7 @@
 <div id="rides">
   <div class="d-flex">
       <%# <%= image_tag "illustration.jpg", alt: "wheel", class: "rounded", style: "width:550px;" %>
-      <div class="map-container" style="width: 100%; height: 295px; max-width:500px; margin-top:40px;"
+      <div class="map-container" style="width: 100%; height: 295px; max-width:500px; margin-top:40px; border:5px solid blue"
             data-controller="map"
             data-map-markers-value="<%= @markers.to_json %>"
             data-map-api-key-value="<%=ENV['MAPBOX_API_KEY']%>">

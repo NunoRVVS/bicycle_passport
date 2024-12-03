@@ -40,8 +40,8 @@ class RidesController < ApplicationController
     @user = current_user
     @ride.user = current_user
     @ride.save
-    redirect_to rides_path(@user, @ride)
-  end
+    redirect_to my_rides_path(@user, @ride)
+ end
 
   def destroy
     @ride = Ride.find(params[:id])
