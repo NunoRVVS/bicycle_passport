@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # get 'users_rides/update'
   # get 'users_rides/destroy'
   devise_for :users
-  root to: "pages#home"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # resources :users  # do
@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
   get "/bicycle_rack", to: "bicycles#bicycle_rack", as: :bicycle_rack
+  get "/new_bicycle_code", to: "bicycles#new_code", as: :new_code
+  get "/new_bicycle_validation", to: "bicycles#new_code_validation", as: :new_code_validation
   get "/my_rides", to: "rides#my_rides", as: :my_rides
   resources :rides, only: [:index]
 
@@ -41,7 +43,7 @@ Rails.application.routes.draw do
     resources :maintenances, only: [:destroy]
     resources :warranties, only: [:destroy]
     resources :insurance_policies, only: [:destroy]
-
+  root to: "pages#home"
   end
 
   # Defines the root path route ("/")

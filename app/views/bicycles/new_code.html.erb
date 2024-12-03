@@ -1,0 +1,14 @@
+<%= turbo_frame_tag :code_input_form do%>
+  <form class="form-inline mb-5 p-0">
+
+      <label for="Code input" class="sr-only">Insert Code: </label>
+      <input type="text" readonly class="form-control-plaintext" id="condeInput" value="Insert Code:">
+
+
+      <label for="inputPassword2 " class="sr-only">Password</label>
+      <input type="password" class="form-control string-optional mb-3" id="codeInput2" placeholder="Registration Code">
+
+      <%= link_to "Register", new_code_validation_path %>
+
+  </form>
+<% end %>
