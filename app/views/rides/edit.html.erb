@@ -1,2 +1,12 @@
-<h1>Rides#edit</h1>
-<p>Find me in app/views/rides/edit.html.erb</p>
+
+<div class="container d-flex justify-content-center">
+  <div class="jumbotron" style="width:900px; padding: 20px;">
+    <h1 class="display-5 d-flex justify-content-center">Edit Ride</h2>
+    <hr class="my-4">
+    <div class="d-flex flex-column align-items-center">
+    <%= render "form", ride: @ride %>
+    <%= link_to "Delete", ride_path(@ride), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer" %>

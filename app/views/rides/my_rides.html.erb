@@ -2,6 +2,11 @@
 <h1 class="d-flex justify-content-center"> Your Rides </h1>
 <div class="row">
 
+    <%= link_to rides_path do %>
+      <span>  <i class="fa-solid fa-arrow-left"></i>  Back </span>
+      <% end %>
+
+
 <% if !@rides.nil? && @rides.count > 0 %>
   <% @rides.each do |ride| %>
     <div class="card col-sm-4 bike-card p-0 mt-5">
@@ -37,3 +42,4 @@
 
 
 </div>
+<%= render "shared/footer" %>
