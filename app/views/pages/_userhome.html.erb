@@ -14,7 +14,7 @@
           <h3><strong><%=@bicycle.make  %></strong>      <a href="#details"><i class="fa-solid fa-circle-info" style="font-size: 24px"></i></a>
       <a href="#rides"><i class="fa-solid fa-bicycle" style="font-size: 24x"></i></a>
       <a href="#log_book"><i class="fa-solid fa-book" style="font-size: 24px"></i></a>
-</h3>
+        </h3>
         </div>
 
       </div>
@@ -23,7 +23,32 @@
         <%= link_to "Edit", edit_bicycle_path(@bicycle), class: "btn button"%>
       </div>
       <div>
-        <%= link_to "Share", "/#", class: "btn button" %>
+
+      <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Share
+      </button>
+
+<!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Your unique code:</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <%= @unique_code  %>
+                </div>
+                <div class="modal-footer">
+                  <span data-bs-dismiss="modal" id="clipboard">Copy</span>
+                  <%# <span> / </span> %>
+                  <%# <h6>Copy</h6> %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
       </div>
       </div>
     </div>
@@ -95,27 +120,30 @@
   </div>
 </div>
 
-<hr>
-<div id="log_book">
-  <div class="head d-flex justify-content-between edges">
-    <h3>Log Book</h3>
-    <div>
-      <%= link_to "See full history", "#{@bicycle.id}/maintenances", class: "btn btn-default" %>
+  <hr>
+  <div id="log_book">
+    <div class="head d-flex justify-content-between edges">
+      <h3>Log Book</h3>
+      <div>
+        <%= link_to "See full history", "#{@bicycle.id}/maintenances", class: "btn btn-default" %>
+      </div>
     </div>
-  </div>
-    <div class="maintenance-list">
-      <div class="row justify-content-center">
-      <% @featured_maintenances.each do |maintenance| %>
-      <div class="card">
-        <div class=" card-body ">
-          <div class="second-line d-flex justify-content-between">
-            <span class="maintenance col-4 text-start"><%= maintenance.description %></span>
-            <span class="shop-name col-3 text-center"><%= maintenance.shop %> </span>
-            <span class="route col-4 text-end"><%= maintenance.date %> </span>
+      <div class="maintenance-list">
+        <div class="row justify-content-center">
+        <% @featured_maintenances.each do |maintenance| %>
+        <div class="card">
+          <div class=" card-body ">
+            <div class="second-line d-flex justify-content-between">
+              <span class="maintenance col-4 text-start"><%= maintenance.description %></span>
+              <span class="shop-name col-3 text-center"><%= maintenance.shop %> </span>
+              <span class="route col-4 text-end"><%= maintenance.date %> </span>
+            </div>
           </div>
         </div>
-      </div>
-      <% end %>
+        <% end %>
+    </div>
   </div>
-</div>
+
+  </div>
+
 </div>
