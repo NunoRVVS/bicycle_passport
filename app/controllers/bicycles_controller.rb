@@ -38,8 +38,9 @@ class BicyclesController < ApplicationController
 
   def create
 
-    @bicycle = Bicycle.new(bicycle_params)
 
+    @bicycle = Bicycle.new(bicycle_params)
+    
     if params[:bicycle][:favourite] == "true"
       Bicycle.all.select {|bike| bike.user == current_user}.each do |b2|
         b2.favourite = false
@@ -48,7 +49,7 @@ class BicyclesController < ApplicationController
     end
     @bicycle.user = current_user
     @bicycle.save
-    redirect_to bicycle_path(@bicycle)
+    redirect_to root_path
   end
 
   def edit
@@ -58,18 +59,43 @@ class BicyclesController < ApplicationController
   def update
 
     if params[:bicycle][:favourite] == "true"
-      Bicycle.all.select {|bike| bike.user == current_user}.each do |b2|
+      Bicycle.all.reject { |b3| b3 == @bicycle }.select {|bike| bike.user == current_user}.each do |b2|
         b2.favourite = false
         b2.save
       end
+      @bicycle.favourite = true
+      @bicycle.save
     end
+
     @bicycle.update(bicycle_params)
+    @bicycle.favourite = true
+    @bicycle.save
     redirect_to bicycle_path(@bicycle)
   end
 
   def destroy
     @bicycle.destroy
     redirect_to bicycles_path, status: :see_other
+  end
+
+  def new_code
+    @user = current_user
+  end
+
+  def new_code_validation
+    @bicycle = Bicycle.new()
+    @bicycle.favourite = true
+    @bicycle.make = "Specialized"
+    @bicycle.serial_number = "1337-t00c00l-b1k3"
+    @bicycle.verified = true
+    @bicycle.user = current_user
+    @bicycle.category = "Road"
+    @bicycle.description = "S-Works Aethos Shimano Dura-Ace Di2"
+    url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733242081/00_AETHOS-SW_djz3tp.png"
+
+    file = URI.parse(url).open
+    @bicycle.photo.attach(io: file, filename: "00_AETHOS-SW.png", content_type: "image/png")
+    @bicycle.save
   end
 
 private

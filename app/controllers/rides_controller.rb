@@ -8,8 +8,20 @@ class RidesController < ApplicationController
   def show
     @ride = Ride.find(params[:id])
     @user = current_user
-    @users_rides_participants = UsersRide.where(ride_id: @ride )
-# raise
+    @users_rides_this_ride = UsersRide.where(ride_id: @ride )
+    @ids_of_participants = [];
+    @users_rides_this_ride.map do |participant|
+      if !@ids_of_participants.include?(participant.user_id)
+        @ids_of_participants << participant.user_id
+      end
+
+    end
+
+    @user_was_on_ride = @ids_of_participants.include?(@user.id)
+    # @users_on_ride = User.all.select {|user| user.id == current_user}
+    # @users_on_ride = User.all.reject{ |user| user.id == current_user.id}
+
+
     @markers = [ {
       lat: @ride.start_lat,
       lng: @ride.start_long
@@ -17,7 +29,7 @@ class RidesController < ApplicationController
       lat: @ride.end_lat,
       lng: @ride.end_long
     }]
-# raise
+
   end
 
   def new
@@ -40,7 +52,7 @@ class RidesController < ApplicationController
     @user = current_user
     @ride.user = current_user
     @ride.save
-    redirect_to my_rides_path(@user, @ride)
+    redirect_to my_rides_path
  end
 
   def destroy

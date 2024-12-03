@@ -18,7 +18,13 @@
     <h1 class="display-5 d-flex justify-content-center">New Bicycle</h2>
     <hr class="my-4">
     <div class="d-flex flex-column align-items-center">
-<%= render "form", bicycle: @bicycle %>
+        <%= turbo_frame_tag :code_input_form do    %>
+        <%= link_to "Do you have a manufacturer code?", new_code_path, class: "button mb-3" %>
+
+    <%= turbo_frame_tag :bicycle_form do%>
+    <%= render "form", bicycle: @bicycle %>
+    <% end %>
+        <% end %>
 </div>
 </div>
 </div>
