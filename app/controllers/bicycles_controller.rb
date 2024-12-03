@@ -10,7 +10,7 @@ class BicyclesController < ApplicationController
     @user = current_user
     @bicycle = Bicycle.find(params[:id])
     @maintenances = Maintenance.where(bicycle: @bicycle.id)
-    @featured_maintenances = Maintenance.where(bicycle: @bicycle.id).first(3)
+    @featured_maintenances = Maintenance.where(bicycle: @bicycle.id).first(5)
     @rides = Ride.where(user_id: current_user)
     @featured_rides = Ride.where(user_id: current_user).first(5)
     @components = Component.all
