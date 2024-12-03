@@ -1,39 +1,37 @@
-<div class="container grid card-container bg-white mt-5" id="card-container">
-<h1 class="d-flex justify-content-center"> Your Rides </h1>
-<div class="row">
+<div class="container grid card-container bg-white mt-5 mb-3" id="card-container">
+  <h1 class="d-flex justify-content-center"> Your Rides </h1>
+  <div class="row">
 
-<% if !@rides.nil? && @rides.count > 0 %>
-  <% @rides.each do |ride| %>
-    <div class="card col-sm-4 bike-card p-0 mt-5">
-    <div class="m-3 card-holder text-wrap" style="height:400px;">
-      <%# <img src="..." class="card-img-top" alt="Your bike here"> %>
-      <% if ride.photo.present? %>
-      <div class="m-3 d-flex align-content-center justify-content-center">
-      <%= cl_image_tag ride.photo.key, height: 250, width: 350, crop: :fill %>
+  <% if !@rides.nil? && @rides.count > 0 %>
+    <% @rides.each do |ride| %>
+      <div class="card col-sm-4 bike-card p-0 mt-5">
+      <div class="m-3 card-holder text-wrap" style="height:450px;">
+        <%# <img src="..." class="card-img-top" alt="Your bike here"> %>
+        <% if ride.photo.present? %>
+        <div class="m-3 d-flex align-content-center justify-content-center">
+        <%= cl_image_tag ride.photo.key, height: 250, width: 350, crop: :fill %>
+        </div>
+        <% end %>
+        <div class="card-body" id="wraper">
+          <h5 class="card-title"> <%= link_to ride.name, ride_path(ride), class:'stretched-link' %></h5>
+          <% results_start = Geocoder.search([ ride.start_lat, ride.start_long]) %>
+          <% results_end = Geocoder.search([ ride.end_lat, ride.end_long]) %>
+          <p class="card-text"><%= results_start.first.city %> to <%= results_end.first.city %> </p>
+          <p class="card-text"> <%= ride.distance %> km<p>
+        </div>
       </div>
-      <% end %>
-      <div class="card-body">
-        <h5 class="card-title"> <%= link_to ride.name, ride_path(ride), class:'stretched-link' %></h5>
-        <% results_start = Geocoder.search([ ride.start_lat, ride.start_long]) %>
-        <% results_end = Geocoder.search([ ride.end_lat, ride.end_long]) %>
-        <p class="card-text"><%= results_start.first.city %> to <%= results_end.first.city %> </p>
-
-        <p class="card-text"> <%= ride.distance %> km<p>
+      </div>
+    <% end %>
+    <% end %>
+      <div class="d-flex justify-content-center p-0 mt-2">
+        <button class="me-3">
+          <%= link_to "Back", bicycle_path(@user) %>
+        </button>
+        <button>
+          <%= link_to "Add a new ride", new_ride_path(@user) %>
+        </button>
       </div>
     </div>
-    </div>
-  <% end %>
-  <% end %>
-    <div class="d-flex justify-content-center p-0 mt-2">
-      <button class="me-3">
-        <%= link_to "Back", bicycle_path(@user) %>
-      </button>
-      <button>
-        <%= link_to "Add a new ride", new_ride_path(@user) %>
-      </button>
-    </div>
-  </div>
-
-
-
 </div>
+
+ <%= render "shared/footer" %>
