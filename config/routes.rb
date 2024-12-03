@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # get 'users_rides/new'
+  get 'users_rides/new'
   # get 'users_rides/create'
   # get 'users_rides/edit'
   # get 'users_rides/update'
@@ -8,15 +8,16 @@ Rails.application.routes.draw do
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  resources :users  # do
+  # resources :users  # do
   #   resources :rides, only: [:create, :new, :edit, :destroy, :update]
   #  end
 
 
-  resources :rides, only: [:create, :new, :edit, :destroy, :update] do
-    resources :user_rides, only: [:new, :create, :edit, :update, :destroy]
+  resources :rides, only: [:create, :new, :edit, :destroy, :update]  do
+    resources :users_rides, only: [:new]
   end
 
+  resources :users_rides, only: [:index, :create, :edit, :update, :destroy]
 
   resources :components, only: [:show, :create, :new, :edit, :destroy, :update]
 

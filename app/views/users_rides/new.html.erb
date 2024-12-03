@@ -1,2 +1,17 @@
 <h1>UsersRides#new</h1>
 <p>Find me in app/views/users_rides/new.html.erb</p>
+
+<div class="container d-flex justify-content-center">
+  <div class="jumbotron" style="width:900px; padding: 20px;">
+    <h1 class="display-5 d-flex justify-content-center">New Users ride</h2>
+    <hr class="my-4">
+    <%= link_to my_rides_path do %>
+      <span>  <i class="fa-solid fa-arrow-left"></i>  Back </span>
+      <% end %>
+    <div class="d-flex flex-column align-items-center">
+    <%= render "form" %>
+
+
+    </div>
+  </div>
+</div>

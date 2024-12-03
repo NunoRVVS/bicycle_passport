@@ -8,7 +8,8 @@ class RidesController < ApplicationController
   def show
     @ride = Ride.find(params[:id])
     @user = current_user
-
+    @users_rides_participants = UsersRide.where(ride_id: @ride )
+# raise
     @markers = [ {
       lat: @ride.start_lat,
       lng: @ride.start_long
@@ -39,7 +40,7 @@ class RidesController < ApplicationController
     @user = current_user
     @ride.user = current_user
     @ride.save
-    redirect_to user_ride_path(@user, @ride)
+    redirect_to rides_path(@user, @ride)
   end
 
   def destroy

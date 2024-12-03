@@ -1,0 +1,12 @@
+
+<% @users_rides.each do |user_ride| %>
+  <p>Ride number:</p>
+  <p><%= user_ride.ride_id %></p>
+  <p>was attended by user </p>
+
+  <p><%= user_ride.user_id %></p>
+
+  <p>with bicycle: </p>
+  <p><%= user_ride.bicycle_id %></p>
+<hr>
+<% end %>
