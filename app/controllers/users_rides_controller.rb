@@ -4,7 +4,6 @@ class UsersRidesController < ApplicationController
     @user = current_user
     @bikes = Bicycle.where(user_id: current_user)
     @users_ride = UsersRide.new
-    # raise
   end
 
   def index
@@ -20,6 +19,7 @@ class UsersRidesController < ApplicationController
     @users_ride.ride = @ride
     @users_ride.bicycle = @bike
     @users_ride.save
+
     redirect_to ride_path(@ride)
   end
 
