@@ -40,9 +40,7 @@ class BicyclesController < ApplicationController
 
 
     @bicycle = Bicycle.new(bicycle_params)
-
-    raise
-
+    
     if params[:bicycle][:favourite] == "true"
       Bicycle.all.select {|bike| bike.user == current_user}.each do |b2|
         b2.favourite = false
