@@ -198,7 +198,7 @@ Ride.create!(
   start_time: "Sat, 01 Jan 2000 12:41:00.000000000 UTC +00:00",
   end_time: "Sat, 01 Jan 2000 12:41:00.000000000 UTC +00:00"
 )
-=======
+
  Component.create!(name: "29er Carbon MTB",
   make:"DCB",
   serial_number: "ty2356q",
@@ -265,4 +265,3 @@ Ride.create!(
  make:"Superlogic",
  serial_number: "P1iM92ux",
  description: "Glossy Carbon Bicycle Handlebar, New Drop Bar, Road Bike, 400mm, 420mm, 440mm")
-
