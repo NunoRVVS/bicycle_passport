@@ -106,7 +106,7 @@ def set_unique_code
       @share_link += ('a'..'z').to_a.sample
       @share_link += ('1'..'9').to_a.sample
     end
-    @share_link
+    return @share_link
 end
 
   def set_bicycle

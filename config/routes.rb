@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-  get 'users_rides/new'
+  get 'errors/internal_server_error'
+  # get 'errors/not_found'
+  # get 'users_rides/new'
+  match '/404', via: :all, to: 'errors#not_found'
+  match '/500', via: :all, to: 'errors#internal_server_error'
   # get 'users_rides/create'
   # get 'users_rides/edit'
   # get 'users_rides/update'
   # get 'users_rides/destroy'
   devise_for :users
 
+  # raise ActionController::RoutingError.new('Not Found')
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # resources :users  # do
