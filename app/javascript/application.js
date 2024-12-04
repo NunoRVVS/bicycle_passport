@@ -10,5 +10,3 @@ import { Application } from "@hotwired/stimulus";
 
 Stimulus = Application.start();
 
-import RideCreationController from "./controllers/ride_creation_controller.js";
-Stimulus.register("ride-creation", RideCreationController);
