@@ -56,7 +56,7 @@ class MaintenancesController < ApplicationController
   end
 
   def maintenance_params
-    params.require(:maintenance).permit(:date, :shop, :description)
+    params.require(:maintenance).permit(:date, :shop, :description, :verified)
   end
 
 

@@ -42,7 +42,7 @@ class BicyclesController < ApplicationController
 
 
     @bicycle = Bicycle.new(bicycle_params)
-    
+
     if params[:bicycle][:favourite] == "true"
       Bicycle.all.select {|bike| bike.user == current_user}.each do |b2|
         b2.favourite = false
@@ -65,13 +65,11 @@ class BicyclesController < ApplicationController
         b2.favourite = false
         b2.save
       end
+
       @bicycle.favourite = true
-      @bicycle.save
     end
 
     @bicycle.update(bicycle_params)
-    @bicycle.favourite = true
-    @bicycle.save
     redirect_to bicycle_path(@bicycle)
   end
 
@@ -108,7 +106,7 @@ def set_unique_code
       @share_link += ('a'..'z').to_a.sample
       @share_link += ('1'..'9').to_a.sample
     end
-    @share_link
+    return @share_link
 end
 
   def set_bicycle

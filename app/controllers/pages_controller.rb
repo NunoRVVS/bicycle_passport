@@ -10,6 +10,7 @@ class PagesController < ApplicationController
     @featured_maintenances = Maintenance.where(bicycle: @bicycle.id).first(3)
     @components = Component.all
     @featured_components = Component.first(4)
+    
     end
 
     @rides = Ride.where(user_id: current_user)
