@@ -1,14 +1,12 @@
-<div class="container flex-wrap mb-5">
+<div class="container flex-wrap mb-5 justify-content-center">
 
-  <div class="d-flex p-0 mt-2">
-
+  <div class="d-flex p-0 mt-5 col-4 justify-content-between">
       <%= link_to rides_path do %>
-      <span>  <i class="fa-solid fa-arrow-left"></i>  Back </span>
+      <span>  <ion-icon name="arrow-undo-outline"></ion-icon>  Back </span>
       <% end %>
-<p>  - - - - - - - - - -</p>
-    <%= link_to "Edit Ride",  edit_ride_path(@ride) %>
   </div>
-  <div class="text-container text-center m-3">
+
+  <div class="text-container text-center my-3">
 
     <h1><%= @ride.name %></h1>
     <% results_start = Geocoder.search([ @ride.start_lat, @ride.start_long]) %>
@@ -31,30 +29,35 @@
   </div>
 
 
- <div class="d-flex p-0 mt-2">
+ <div class="text-container text-start-middle px-3 my-3 col-5" style="margin-left:195px">
 
- </div>
+    <h4>Who was there?</h4>
 
-  <h4>Who was there?</h4>
+    <%if @user_was_on_ride  %>
 
-  <%if @user_was_on_ride  %>
+      <p>You were on this event on <%= @ride.start_date %>. Not correct? Remove yourself <%= link_to  new_ride_users_ride_path(@ride) do %>
+                  <span> here </span>
+                <% end %></p>
+      <% else %>
 
-    <p>You were on this event on <%= @ride.start_date %>. Not correct? Remove yourself <%= link_to  new_ride_users_ride_path(@ride) do %>
-                <span> here </span>
-              <% end %></p>
-    <% else %>
+        <p> Were you there? .....Mention it <%= link_to  new_ride_users_ride_path(@ride) do %>
+                  <span> here </span>
+                <% end %>
+    <% end %>
 
-      <p> Were you there? .....Mention it <%= link_to  new_ride_users_ride_path(@ride) do %>
-                <span> here </span>
-              <% end %>
-   <% end %>
+    <% @ids_of_participants.each do |id| %>
 
-  <% @ids_of_participants.each do |id| %>
+      <p><%= image_tag "biker.png", style:"width: 50px", class: "rounded-circle" %> - <%= User.find(id).name %></p>
 
+    <% end %>
 
-    <p><%= image_tag "biker.png", style:"width: 50px", class: "rounded-circle" %> - <%= User.find(id).name %></p>
+  </div>
+  <div class="text-center mt-2">
+    <button class="px-2">
+      <%= link_to "Edit Ride",  edit_ride_path(@ride) %>
+    </button>
+  </div>
 
-  <% end %>
-  
 </div>
+
 <%= render "shared/footer" %>
