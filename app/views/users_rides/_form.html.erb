@@ -1,10 +1,10 @@
 <%= simple_form_for @users_ride do |f| %>
 
   <%=  f.input :bicycle, collection: @bikes  %>
-  <%=  f.input :user, collection: [@user], selected: @user%>
-  <%=  f.input :ride, collection: [@ride], selected: @ride %>
+  <%# <%=  f.input :user, collection: [@user], selected: @user %>
+  <%# <%=  f.input :ride, collection: [@ride], selected: @ride %>
 
-  <%=  f.submit "Add me to Ride", class: "btn btn-primary" %>
+  <%=  f.submit "Add me to Ride", style:"background-color:#899687; border:none"  %>
 <% end %>
 
 
