@@ -1,5 +1,6 @@
 class BicyclesController < ApplicationController
   before_action :set_bicycle, only: [:show, :edit, :update, :destroy]
+  before_action :set_unique_code, only:[:show]
 
   def index
     @bicycles = Bicycle.all
@@ -26,6 +27,7 @@ class BicyclesController < ApplicationController
         lng: @ride.end_long
       }]
     end
+    @unique_code = set_unique_code
   end
 
   def bicycle_rack
@@ -99,6 +101,15 @@ class BicyclesController < ApplicationController
   end
 
 private
+
+def set_unique_code
+  @share_link = "https://bikepass.xyz/"
+    6.times do
+      @share_link += ('a'..'z').to_a.sample
+      @share_link += ('1'..'9').to_a.sample
+    end
+    @share_link
+end
 
   def set_bicycle
     @bicycle = Bicycle.find(params[:id])

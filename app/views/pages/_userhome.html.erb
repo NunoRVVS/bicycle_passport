@@ -12,10 +12,48 @@
         <div>
           <h1><%= @bicycle.name %></h1>
           <h3><strong><%=@bicycle.make  %></strong>      <a href="#details"><i class="fa-solid fa-circle-info" style="font-size: 24px"></i></a>
-          <a href="#rides"><i class="fa-solid fa-bicycle" style="font-size: 24x"></i></a>
-          <a href="#log_book"><i class="fa-solid fa-book" style="font-size: 24px"></i></a>
-          </h3>
+
+      <a href="#rides"><i class="fa-solid fa-bicycle" style="font-size: 24x"></i></a>
+      <a href="#log_book"><i class="fa-solid fa-book" style="font-size: 24px"></i></a>
+        </h3>
         </div>
+
+      </div>
+      <div class="d-flex">
+      <div>
+        <%= link_to "Edit", edit_bicycle_path(@bicycle), class: "btn button"%>
+      </div>
+      <div>
+
+      <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Share
+      </button>
+
+<!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Your unique code:</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <%= @unique_code  %>
+                </div>
+                <div class="modal-footer">
+                  <span data-bs-dismiss="modal" id="clipboard">Copy</span>
+                  <%# <span> / </span> %>
+                  <%# <h6>Copy</h6> %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+      </div>
+
+        
+
       </div>
 
       <div class="d-flex flex align-items-center">
@@ -97,13 +135,16 @@
   </div>
 </div>
 
+
 <hr>
 <div class="mb-5" id="log_book">
   <div class="d-flex justify-content-between edges mb-3">
+
       <h3>Log Book</h3>
       <div>
         <%= link_to "See full history", "#{@bicycle.id}/maintenances", class: "btn btn-default" %>
       </div>
+
   </div>
     <div class="d-flex flex-column justify-content-evenly">
       <div>
@@ -120,4 +161,5 @@
           <% end %>
       </div>
     </div>
+
 </div>
