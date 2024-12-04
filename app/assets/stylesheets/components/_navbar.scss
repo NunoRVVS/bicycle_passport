@@ -28,7 +28,7 @@
   color:aliceblue;
   margin: 5px 20px;
   &:hover {
-    color: rgb(68, 240, 238);
+    color: $primary-green;
     transform: scale(1.1);
   }
 }
@@ -44,6 +44,10 @@
   width:500px;
   margin-right: 350px;
 }
+
+// .nav-element{
+
+// }
 
 a {
   list-style-type: none;
