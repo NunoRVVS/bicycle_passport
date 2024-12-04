@@ -1,8 +1,8 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon container sticky-top style">
-  <div class="container d-flex navbar-parent align-content-inbetween">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon container justify sticky-top style">
+  <div class="container d-flex navbar-parent justify-content-between">
     <div clas="p-2 flex-shrink-1">
       <%= link_to "/", class: "navbar-brand" do %>
-        <%= image_tag "logo_bike.jpg" %>
+        <%= image_tag "logo_bike.jpg", style:"width:50px;"%>
       <% end %>
     </div>
     <%# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,8 +12,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <% if user_signed_in? %>
         <div class="main-nav-holder">
-          <div class="container navbar-items">
-            <ul class="navbar-nav me-auto">
+          <div class="container me-auto navbar-items">
+            <ul class="navbar-nav justify-content-evenly align-items-center">
                 <li class="nav-item">
                   <%= link_to "Bike Rack", bicycle_rack_path, class: "nav-link" %>
                 </li>
@@ -30,22 +30,22 @@
           </div>
         </div>
         <div>
-          <ul class="m-0 p-0">
-            <li class="nav-item dropdown navbar-nav">
-            <a href="#" class="avatar m-0 p-0" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <% @user = current_user %>
-            <% if !@user.nil? %>
-              <% if @user.photo.present? %>
-              <%= cl_image_tag @user.photo.key, class: "avatar biker", alt: "dropdown menu" %>
-            <% else %>
-              <%= image_tag "biker.png", class: "avatar biker", alt: "dropdown menu" %>
-            <%end%>
-             </a>
-            <% end %>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Edit profile", "/users/edit", class: "dropdown-item" %>
-                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-              </div>
+          <ul class="navbar-nav m-0 p-0">
+            <li class="nav-item dropdown m-0">
+              <% @user = current_user %>
+              <% if @user.present? %>
+                <a href="#" class="avatar m-0" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <% if @user.photo.present? %>
+                    <%= cl_image_tag @user.photo.key, class: "avatar biker", alt: "Profile Picture" %>
+                  <% else %>
+                    <%= image_tag "biker.png", class: "avatar biker", alt: "Default Profile Picture", style: "width:50px;" %>
+                  <% end %>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
+                  <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
+                </div>
+              <% end %>
             </li>
           </ul>
         </div>
