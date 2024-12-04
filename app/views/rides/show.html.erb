@@ -51,10 +51,10 @@
 
   <% @ids_of_participants.each do |id| %>
 
+
     <p><%= image_tag "biker.png", style:"width: 50px", class: "rounded-circle" %> - <%= User.find(id).name %></p>
 
   <% end %>
-
-
+  
 </div>
 <%= render "shared/footer" %>
