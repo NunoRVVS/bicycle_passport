@@ -19,14 +19,14 @@
         </div>
 
       </div>
-      <div class="d-flex">
+      <div class="d-flex flex align-items-center">
       <div>
         <%= link_to "Edit", edit_bicycle_path(@bicycle), class: "btn button"%>
       </div>
       <div>
 
-      <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Share
+      <button class="px-3" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+         Share <i class="fa-solid fa-share-nodes"></i>
       </button>
 
 <!-- Modal -->
@@ -52,20 +52,10 @@
 
       </div>
 
-        
+
 
       </div>
 
-      <div class="d-flex flex align-items-center">
-        <div>
-          <%= link_to "Edit", edit_bicycle_path(@bicycle), class: "btn button"%>
-        </div>
-        <button class="px-3">
-          <%= link_to "Share" do %>
-            Share <i class="fa-solid fa-share-nodes"></i>
-          <% end %>
-        </button>
-        </div>
     </div>
 
     <p><strong><%=@bicycle.description  %></strong></p>
@@ -152,7 +142,11 @@
           <div class="card ps-0 pe-0">
             <div class=" card-body">
               <div class="second-line d-flex justify-content-between">
-                <span class="maintenance col-4 text-start"><%= maintenance.description %></span>
+                <span class="maintenance col-4 text-start"><%= maintenance.description %>
+                  <% if @bicycle.verified %>
+                  <spam><ion-icon name="checkmark-circle-outline"></ion-icon></spam>
+                  <% end %>
+                </span>
                 <span class="shop-name col-4 text-center"><%= maintenance.shop %> </span>
                 <span class="route col-4 text-end"><%= maintenance.date %> </span>
               </div>
@@ -163,3 +157,5 @@
     </div>
 
 </div>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

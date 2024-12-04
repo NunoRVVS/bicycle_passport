@@ -7,31 +7,77 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-# InsurancePolicy.destroy_all
-# Maintenance.destroy_all
-# Bicycle.destroy_all
-# User.destroy_all
-# Component.destroy_all
+InsurancePolicy.destroy_all
+Maintenance.destroy_all
+Bicycle.destroy_all
+User.destroy_all
+Component.destroy_all
 
- User.create!(name:"Joao", email:"joao1@mail.com", password:"123456")
- User.create!(name:"Manel", email:"manel@mail.com", password:"123456")
+User.create!(name:"Manel Rider", email:"manel1@mail.com", password:"123456")
+User.create!(name:"Joao Velo", email:"joao2@mail.com", password:"123456")
+User.create!(name:"Remco Evenepoel", email:"remco@mail.com", password:"123456")
+User.create!(name:"Davide Ballerini", email:"davide@mail.com", password:"123456")
+User.create!(name:"Mattia Cattaneo", email:"mattia@mail.com", password:"123456")
+User.create!(name:"Josef Černý", email:"josef@mail.com", password:"123456")
+User.create!(name:"Ilan Van Wilder", email:"ilan@mail.com", password:"123456")
+User.create!(name:"Louis Vervaeke", email:"louis@mail.com", password:"123456")
+User.create!(name:"Stefano Oldani", email:"stefano@mail.com", password:"123456")
+User.create!(name:"Alexander Krieger", email:"alexander@mail.com", password:"123456")
+User.create!(name:"Yukiya Arashiro", email:"yukiya@mail.com", password:"123456")
+User.create!(name:"Diego Pablo Sevilla", email:"diego@mail.com", password:"123456")
+User.create!(name:"Pieter Serry", email:"pieter@mail.com", password:"123456")
+User.create!(name:"Charlie Quarterman", email:"charlie@mail.com", password:"123456")
 
 
 bicycle = Bicycle.create!(name: 'My Bike',
-                          category: 'Mountain',
+                          category: 'Road',
                           serial_number: '12345',
                           description: 'My first bike',
                           make: 'Trek',
-                          user: User.first)
+                          favourite: true,
+                          verified: true,
+                          user: User.all[1])
+
+burnout = Bicycle.create!(name: 'Burnout',
+                          category: 'Road',
+                          serial_number: '1fC73387',
+                          description: 'To cherish for ever and ever',
+                          make: 'Giant',
+                          favourite: true,
+                          verified: true,
+                          user: User.all[2])
+
+weekender = Bicycle.create!(name: 'Weekender',
+                          category: 'Road',
+                          serial_number: '854S387',
+                          description: 'The one to show off',
+                          make: 'Pinnarello',
+                          favourite: true,
+                          verified: true,
+                          user: User.all[3])
+
+performance = Bicycle.create!(name: 'Performance',
+                          category: 'Road',
+                          serial_number: '8r4p324',
+                          description: 'The precious one',
+                          make: 'Van Rysel',
+                          favourite: true,
+                          verified: true,
+                          user: User.all[4])
+
 
 InsurancePolicy.create!(insurer: 'XYZ Insurance', policy_number: '12345', description: 'Basic coverage', bicycle: bicycle)
+InsurancePolicy.create!(insurer: 'YellowOnes Insurance', policy_number: '1654f874d', description: 'Racing coverage', bicycle: burnout)
+InsurancePolicy.create!(insurer: 'Velosurance', policy_number: '1r54s87f48', description: 'Full coverage', bicycle: weekender)
+InsurancePolicy.create!(insurer: 'WeCycle Insurance', policy_number: '548d3f572', description: 'Full coverage', bicycle: performance)
+
 Maintenance.create!(date: Date.today, shop: 'Bike Fix', description: 'Tire replacement', bicycle: bicycle)
 Maintenance.create!(date: "2024-11-30", shop: 'Balfes', description: '1st revision', bicycle: bicycle)
-Maintenance.create!(date: "2024-12-22", shop: 'Vluption', description: 'Crank repair', bicycle: bicycle)
-Maintenance.create!(date: "2025-02-15", shop: 'Greenwich Bike Shop', description: '1st gear revision', bicycle: bicycle)
+Maintenance.create!(date: "2024-12-22", shop: 'Vluption', description: 'Crank repair', bicycle: burnout)
+Maintenance.create!(date: "2025-02-15", shop: 'Greenwich Bike Shop', description: '1st gear revision', bicycle: burnout)
 Maintenance.create!(date: "2025-05-01", shop: 'Greenwich Bike Shop', description: '6 month revision', bicycle: bicycle)
-Maintenance.create!(date: "2025-03-20", shop: 'Greenwich Bike Shop', description: 'Race Full Bike Check up', bicycle: bicycle)
-Maintenance.create!(date: "2025-08-01", shop: 'No Stress Bike Shop', description: 'New wheel pair set up (due temporary stock shortage there is a delay and due time is for the 1st of August)', bicycle: bicycle)
+Maintenance.create!(date: "2025-03-20", shop: 'Greenwich Bike Shop', description: 'Race Full Bike Check up', bicycle: performance)
+Maintenance.create!(date: "2025-08-01", shop: 'No Stress Bike Shop', description: 'New wheel pair set up (due temporary stock shortage there is a delay and due time is for the 1st of August)', bicycle: weekender)
 
 
 Component.create!(name: "Rim",
@@ -47,7 +93,7 @@ Component.create!(name: "Crank",
                 serial_number: "XNC 2142323151",
                 description: "Diamant Wheel Top DCRX1 Double Crankset")
 
-                Component.create!(name: "29er Carbon MTB",
+Component.create!(name: "29er Carbon MTB",
                 make:"DCB",
                 serial_number: "ty2356q",
                 description: "The DCB Carbon MTB Ultralight Wheels are our lightest wheels yet still being capable for XC/Trail riding and racing. The rims are ultralight at 285g a rim for the 27mm (22id) create a ridiculously light rotating mass and the 34mm (28id) are only 310g!!")
@@ -114,47 +160,30 @@ serial_number: "P1iM92ux",
 description: "Glossy Carbon Bicycle Handlebar, New Drop Bar, Road Bike, 400mm, 420mm, 440mm")
 
 
-Ride.create(
-    name: "Coastal Fever",
-    start_lat: 38.698032,
-    start_date: "10 Nov 2024",
-    end_date: " 10 Nov 2024",
-    user_id: 2,
-    start_long: -9.420665,
-    end_lat: 38.69022,
-    end_long: -9.335598,
-    distance: 9.0)
+Ride.create!(
+  name: "Sesimbra to Setubal",
+  start_lat: 38.48761,
+  start_date: "2024-11-28",
+  end_date: "2024-11-29",
+  user: User.find(2),
+  start_long: -9.113747,
+  end_lat: 38.523502,
+  end_long: -8.894553,
+  distance: 58.0,
+  start_time: "Sat, 01 Jan 2000 17:14:00.000000000 UTC +00:00",
+  end_time: "Sat, 01 Jan 2000 20:14:00.000000000 UTC +00:00"
+)
 
-Ride.create(
-  name: "Downhill Panic",
-  start_lat: 38.795944,
-  start_date: "15 Nov 2024",
-  end_date: "15 Nov 2024",
-  user_id: 2,
-  start_long: -9.38959,
-  end_lat: -19.96758,
-  end_long: -43.957814,
-  distance: 15.0)
-
-Ride.create(
-  name: "Pasta-eater jumble",
-  start_lat: 45.463945,
-  start_date: "20 Nov 2024",
-  end_date: "20 Nov 2024",
-  user_id: 2,
-  start_long: 9.188558,
-  end_lat: 41.899986,
-  end_long: 12.476713,
-  distance: 477.3)
-
-
-Ride.create(
-  name: "PasteisDeBelemHunger",
-  start_lat: 38.693264,
-  start_date: "25 Nov 2024",
-  end_date: "25 Nov 2024",
-  user_id: 2,
-  start_long: -9.308493,
-  end_lat: -1.45056,
-  end_long: -48.4682,
-  distance: 11.0)
+Ride.create!(
+  name: "Iron hill at High Speed",
+  start_lat: 38.71731,
+  start_date: "2024-11-09",
+  end_date: "2024-11-09",
+  user: User.find(2),
+  start_long: -9.143052,
+  end_lat: 38.523502,
+  end_long: -8.894553,
+  distance: 65.0,
+  start_time: "Sat, 01 Jan 2000 12:41:00.000000000 UTC +00:00",
+  end_time: "Sat, 01 Jan 2000 12:41:00.000000000 UTC +00:00"
+)

@@ -1,4 +1,10 @@
 <div class="container grid card-container bg-white mt-5 mb-3" id="card-container">
+  <div class="d-flex p-0 mt-5 col-4 justify-content-between">
+    <%= link_to root_path do %>
+      <span>  <ion-icon name="arrow-undo-outline"></ion-icon>  Back </span>
+    <% end %>
+  </div>
+
   <h1 class="d-flex justify-content-center"> Your Rides </h1>
   <div class="row">
 
@@ -24,10 +30,7 @@
     <% end %>
     <% end %>
       <div class="d-flex justify-content-center p-0 mt-2">
-        <button class="me-3">
-          <%= link_to "Back", bicycle_path(@user) %>
-        </button>
-        <button>
+        <button class="px-2">
           <%= link_to "Add a new ride", new_ride_path(@user) %>
         </button>
       </div>
@@ -35,5 +38,3 @@
 </div>
 
 <%= render "shared/footer" %>
-
-
