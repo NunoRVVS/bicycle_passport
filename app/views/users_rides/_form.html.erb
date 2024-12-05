@@ -5,8 +5,10 @@
   <%= f.input :user, collection: [@user], selected: @user %>
   <%=  f.input :ride, collection: [@ride], selected: @ride %>
   </div>
-  <%=  f.submit "Add me to Ride", style:"background-color:#899687; border:none"  %>
+  <%=  f.submit "Add me to Ride", class:"rounded", style:"background-color:#899687; border:none; padding:10px"  %>
 <% end %>
 
 
  <%# style:"font-size:78px;"  %>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

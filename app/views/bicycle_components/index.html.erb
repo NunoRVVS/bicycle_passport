@@ -1,7 +1,14 @@
-<h1>Bicycle Components</h1>
-<ul>
-  <% @bicycle_components.each do |bicycle_component| %>
-    <li><%= link_to bicycle_component.component.name, bicycle_component_path(bicycle_component) %></li>
-  <% end %>
-</ul>
-<%= link_to 'New Bicycle Component', new_bicycle_component_path %>
+<div class="container d-flex justify-content-center">
+  <div class="jumbotron" style="width:900px; padding: 20px;">
+    <h1 class="text-center">Bicycle Components</h1>
+    <hr class="my-4">
+    <div class="d-flex flex-column align-items-center">
+    <ul>
+      <% @bicycle_components.each do |bicycle_component| %>
+        <li><%= link_to bicycle_component.component.name, bicycle_component_path(bicycle_component) %></li>
+      <% end %>
+    </ul>
+    <%= link_to 'New Bicycle Component', new_bicycle_component_path %>
+    </div>
+  </div>
+</div>

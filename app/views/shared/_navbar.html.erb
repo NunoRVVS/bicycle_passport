@@ -36,7 +36,7 @@
               <% if @user.present? %>
                 <a href="#" class="avatar m-0" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <% if @user.photo.present? %>
-                    <%= cl_image_tag @user.photo.key, class: "avatar biker", alt: "Profile Picture" %>
+                    <%= cl_image_tag @user.photo.key, class: "avatar biker", alt: "Profile Picture", style:"border-radius:50%; width:50px;"%>
                   <% else %>
                     <%= image_tag "biker.png", class: "avatar biker", alt: "Default Profile Picture", style: "width:50px;" %>
                   <% end %>
