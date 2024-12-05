@@ -40,7 +40,7 @@
          Share <i class="fa-solid fa-share-nodes"></i>
       </button>
       <% end %>
-  
+
 
 <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -75,8 +75,12 @@
 
     <div>
       <p><strong><%=@bicycle.description  %></strong></p>
+          <% if @warranty %>
           <p>Current Warranty: <%= @warranty.issuer %></p>
+          <% end %>
+          <% if @insurance %>
           <p>Current Insurance policy: <%= @insurance.insurer%> - <%= @insurance.policy_number%></p>
+          <% end %>
     </div>
 <hr>
 
