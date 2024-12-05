@@ -94,7 +94,7 @@ class BicyclesController < ApplicationController
     @bicycle.user = current_user
     @bicycle.category = "Road"
     @bicycle.description = "S-Works Aethos Shimano Dura-Ace Di2"
-    url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733242081/00_AETHOS-SW_djz3tp.png"
+    url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733402994/00_AETHOS-SW_g2ykkc.png"
 
     file = URI.parse(url).open
     @bicycle.photo.attach(io: file, filename: "00_AETHOS-SW.png", content_type: "image/png")

@@ -14,14 +14,37 @@ Bicycle.destroy_all
 User.destroy_all
 Component.destroy_all
 
-User.create!(name:"Manel Rider", email:"manel1@mail.com", password:"123456")
-User.create!(name:"Joao Velo", email:"joao2@mail.com", password:"123456")
-User.create!(name:"Remco Evenepoel", email:"remco@mail.com", password:"123456")
-User.create!(name:"Davide Ballerini", email:"davide@mail.com", password:"123456")
+# User.create!(name:"Manel Rider", email:"manel1@mail.com", password:"123456")
+# User.create!(name:"Joao Velo", email:"joao2@mail.com", password:"123456")
+# User.create!(name:"Remco Evenepoel", email:"remco@mail.com", password:"123456")
+# User.create!(name:"Davide Ballerini", email:"davide@mail.com", password:"123456")
 User.create!(name:"Mattia Cattaneo", email:"mattia@mail.com", password:"123456")
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733401398/mattia-cattaneo-2024_taola5.jpg"
+
+file = URI.parse(url).open
+User.last.photo.attach(io: file, filename: "mattia-cattaneo.jpg", content_type: "image/jpg")
+
 User.create!(name:"Josef Černý", email:"josef@mail.com", password:"123456")
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733401390/Josef_%C4%8Cern%C3%BD_fz85a6.jpg"
+
+file = URI.parse(url).open
+User.last.photo.attach(io: file, filename: "Josef-Cerny.jpg", content_type: "image/jpg")
+
 User.create!(name:"Ilan Van Wilder", email:"ilan@mail.com", password:"123456")
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733401387/ilan-van-wilder-2024_kcg4qc.jpg"
+
+file = URI.parse(url).open
+User.last.photo.attach(io: file, filename: "Ilian-Wilder.jpg", content_type: "image/jpg")
+
+
 User.create!(name:"Louis Vervaeke", email:"louis@mail.com", password:"123456")
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733401394/louis-vervaeke-2024_jlllzw.jpg"
+
+file = URI.parse(url).open
+User.last.photo.attach(io: file, filename: "Louis-Vervaeke.jpg", content_type: "image/jpg")
+
+
+
 User.create!(name:"Stefano Oldani", email:"stefano@mail.com", password:"123456")
 User.create!(name:"Alexander Krieger", email:"alexander@mail.com", password:"123456")
 User.create!(name:"Yukiya Arashiro", email:"yukiya@mail.com", password:"123456")
@@ -30,14 +53,20 @@ User.create!(name:"Pieter Serry", email:"pieter@mail.com", password:"123456")
 User.create!(name:"Charlie Quarterman", email:"charlie@mail.com", password:"123456")
 
 
-bicycle = Bicycle.create!(name: 'My Bike',
+bicycle = Bicycle.create!(name: 'Dream Wheels',
                           category: 'Road',
                           serial_number: '12345',
-                          description: 'My first bike',
-                          make: 'Trek',
+                          description: 'Gold S Works',
+                          make: 'Specialized',
                           favourite: true,
                           verified: true,
-                          user: User.all[1])
+                          user: User.all[0])
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733401004/Specialized_gold_s-works_tarmac_sl8_kscqrg.webp"
+file = URI.parse(url).open
+Bicycle.last.photo.attach(io: file, filename: "specialized.webp", content_type: "image/webp")
+
+
+
 
 burnout = Bicycle.create!(name: 'Burnout',
                           category: 'Road',
@@ -46,7 +75,11 @@ burnout = Bicycle.create!(name: 'Burnout',
                           make: 'Giant',
                           favourite: true,
                           verified: true,
-                          user: User.all[2])
+                          user: User.all[1])
+
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733401003/Giant-Revolt-Advanced-0-brown-hematite_nmwsya.jpg"
+file = URI.parse(url).open
+Bicycle.last.photo.attach(io: file, filename: "giant-revolt.jpg", content_type: "image/jpg")
 
 weekender = Bicycle.create!(name: 'Weekender',
                           category: 'Road',
@@ -55,7 +88,11 @@ weekender = Bicycle.create!(name: 'Weekender',
                           make: 'Pinnarello',
                           favourite: true,
                           verified: true,
-                          user: User.all[3])
+                          user: User.all[2])
+
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733401004/Pinarello_Dogma_F_Disc_dlrdvy.jpg"
+file = URI.parse(url).open
+Bicycle.last.photo.attach(io: file, filename: "pinarello-weekender.jpg", content_type: "image/jpg")
 
 performance = Bicycle.create!(name: 'Performance',
                           category: 'Road',
@@ -64,7 +101,10 @@ performance = Bicycle.create!(name: 'Performance',
                           make: 'Van Rysel',
                           favourite: true,
                           verified: true,
-                          user: User.all[4])
+                          user: User.all[3])
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733401004/Van_Rysel_AG2R_LA_MONDIALE_TEAM_rnaxf2.jpg"
+file = URI.parse(url).open
+Bicycle.last.photo.attach(io: file, filename: "vanrysel.jpg", content_type: "image/jpg")
 
 
 InsurancePolicy.create!(insurer: 'XYZ Insurance', policy_number: '12345', description: 'Basic coverage', bicycle: bicycle)
@@ -95,19 +135,36 @@ Component.create!(name: "Rim",
                 make:"Bontrager",
                 serial_number: "XNC 2142323151",
                 description: "Durable double-wall rim with 20mm internal, 26mm external width. Bontrager Connection double wall, non-eyeletted rims")
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733404790/bicycle_rim_gbagmz.jpg"
+file = URI.parse(url).open
+Component.last.photo.attach(io: file, filename: "bontrager-rim.jpg", content_type: "image/jpg")
+
+
 Component.create!(name: "Shifter",
                 make:"Shimano",
                 serial_number: "XNC 2142323151",
                 description: "Altus M2010, 9-speed")
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733404790/shifter_onz9ne.jpg"
+file = URI.parse(url).open
+Component.last.photo.attach(io: file, filename: "shimano-shifter.jpg", content_type: "image/jpg")
+
 Component.create!(name: "Crank",
                 make:"Trek",
                 serial_number: "XNC 2142323151",
                 description: "Diamant Wheel Top DCRX1 Double Crankset")
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733404790/crank_rp6hmq.jpg"
+file = URI.parse(url).open
+Component.last.photo.attach(io: file, filename: "Trek-Crank.jpg", content_type: "image/jpg")
+
 
 Component.create!(name: "29er Carbon MTB",
                 make:"DCB",
                 serial_number: "ty2356q",
                 description: "The DCB Carbon MTB Ultralight Wheels are our lightest wheels yet still being capable for XC/Trail riding and racing. The rims are ultralight at 285g a rim for the 27mm (22id) create a ridiculously light rotating mass and the 34mm (28id) are only 310g!!")
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733404790/revolt_frame_kt2hrk.png"
+file = URI.parse(url).open
+Component.last.photo.attach(io: file, filename: "revolt-frame.jpg", content_type: "image/jpg")
+
 # --------------------
 
 Component.create!(name: "26er or 27.5 Carbon Fat",
@@ -176,7 +233,7 @@ Ride.create!(
   start_lat: 38.48761,
   start_date: "2024-11-28",
   end_date: "2024-11-29",
-  user: User.find(2),
+  user: User.all[0],
   start_long: -9.113747,
   end_lat: 38.523502,
   end_long: -8.894553,
@@ -185,12 +242,16 @@ Ride.create!(
   end_time: "Sat, 01 Jan 2000 20:14:00.000000000 UTC +00:00"
 )
 
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733315812/7_n0hpau.jpg"
+file = URI.parse(url).open
+Ride.last.photo.attach(io: file, filename: "ride1.jpg", content_type: "image/jpg")
+
 Ride.create!(
   name: "Iron hill at High Speed",
   start_lat: 38.71731,
   start_date: "2024-11-09",
   end_date: "2024-11-09",
-  user: User.find(2),
+  user: User.all[1],
   start_long: -9.143052,
   end_lat: 38.523502,
   end_long: -8.894553,
@@ -198,6 +259,11 @@ Ride.create!(
   start_time: "Sat, 01 Jan 2000 12:41:00.000000000 UTC +00:00",
   end_time: "Sat, 01 Jan 2000 12:41:00.000000000 UTC +00:00"
 )
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733315808/1_hfkw9w.jpg"
+file = URI.parse(url).open
+Ride.last.photo.attach(io: file, filename: "ride2.jpg", content_type: "image/jpg")
+
+
 
  Component.create!(name: "29er Carbon MTB",
   make:"DCB",
@@ -265,3 +331,14 @@ Ride.create!(
  make:"Superlogic",
  serial_number: "P1iM92ux",
  description: "Glossy Carbon Bicycle Handlebar, New Drop Bar, Road Bike, 400mm, 420mm, 440mm")
+
+ UsersRide.create!(
+  user: User.all[0],
+  bicycle: Bicycle.all[0],
+  ride: Ride.all[0]
+ )
+ UsersRide.create!(
+  user: User.all[1],
+  bicycle: Bicycle.all[1],
+  ride: Ride.all[1]
+ )
