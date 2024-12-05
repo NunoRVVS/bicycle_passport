@@ -8,29 +8,39 @@
 
 
     <div class="edges d-flex justify-content-between m-0">
-      <div class="d-flex align-items-center">
+      <div class="d-flex flex-column align-items-start">
         <div>
           <h1><%= @bicycle.name %></h1>
-          <h3><strong><%=@bicycle.make  %></strong>      <a href="#details"><i class="fa-solid fa-circle-info" style="font-size: 24px"></i></a>
-
-      <a href="#rides"><i class="fa-solid fa-bicycle" style="font-size: 24x"></i></a>
-      <a href="#log_book"><i class="fa-solid fa-book" style="font-size: 24px"></i></a>
-        </h3>
+          <h3><strong><%=@bicycle.make  %></strong>
+          <a href="#details"><i class="fa-solid fa-circle-info" style="font-size: 24px"></i></a>
+          <a href="#rides"><i class="fa-solid fa-bicycle" style="font-size: 24x"></i></a>
+          <a href="#log_book"><i class="fa-solid fa-book" style="font-size: 24px"></i></a>
+           <%# <div class="display-4 d-flex align-items-center justify-content-center"> %>
+            <% if @bicycle.verified %>
+              <%= image_tag "certified-icon.png", alt: "icon", style: "width:50px; heigth:50px;" %>
+            <% end %>
+          <%# </div> %>
+          </h3>
         </div>
 
+
       </div>
+
       <div class="d-flex flex align-items-center">
+
       <div>
       <% if current_user == @bicycle.user %>
         <%= link_to "Edit", edit_bicycle_path(@bicycle), class: "btn button"%>
         <% end %>
       </div>
+
       <div>
       <% if current_user == @bicycle.user %>
       <button class="px-3" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
          Share <i class="fa-solid fa-share-nodes"></i>
-      <% end %>
       </button>
+      <% end %>
+  
 
 <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -44,7 +54,7 @@
                   <%= @unique_code  %>
                 </div>
                 <div class="modal-footer">
-                  <span data-bs-dismiss="modal" id="clipboard">Copy</span>
+                  <%# <span data-bs-dismiss="modal" id="clipboard">Copy</span> %>
                   <%# <span> / </span> %>
                   <%# <h6>Copy</h6> %>
                 </div>
@@ -61,26 +71,31 @@
 
     </div>
 
-    <p><strong><%=@bicycle.description  %></strong></p>
+
+
+    <div>
+      <p><strong><%=@bicycle.description  %></strong></p>
+          <p>Current Warranty: <%= @warranty.issuer %></p>
+          <p>Current Insurance policy: <%= @insurance.insurer%> - <%= @insurance.policy_number%></p>
+    </div>
 <hr>
 
 <div id="details">
-  <div class="d-flex justify-content-between edges mb-3">
+  <div class="d-flex justify-content-between edges mb-4">
   <h3>Details</h3>
     <div>
         <%= link_to "See all", "#{@bicycle.id}/components", class: "btn btn-confirm" %>
     </div>
   </div>
 
-  <div class="cards d-flex justify-content-between
-  ">
+  <div class="cards d-flex justify-content-between">
 
   <% @featured_components.each do |component| %>
-      <div class="card d-flex justify-content-center" style="height:370px; width: 250px;">
-        <%= image_tag "carbon-wheel.jpg", alt: "wheel", class: "rounded", style: "width:245px;", crop: :fill %>
+      <div class="card d-flex justify-content-center" style="height:450px; width:285px;">
+        <%= image_tag "carbon-wheel.jpg", alt: "wheel", class: "rounded", style: "width:280px;", crop: :fill %>
         <div class="card-body d-flex flex-column align-items-center p-4">
-          <h5 class="card-title"><%= link_to component.name, component_path(component), class:'stretched-link'%></h5>
-          <p class="card-text"><%= component.make %></p>
+          <h5 class="card-title text-center"><%= link_to component.name, component_path(component), class:'stretched-link'%></h5>
+          <p class="card-text mt-auto"><%= component.make %></p>
         </div>
       </div>
 
