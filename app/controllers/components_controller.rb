@@ -42,6 +42,6 @@ class ComponentsController < ApplicationController
   private
 
   def component_params
-    params.require(:component).permit(:make, :name, :serial_number, :description)
+    params.require(:component).permit(:make, :name, :serial_number, :description, :photo)
   end
 end
