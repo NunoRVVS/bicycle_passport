@@ -53,7 +53,7 @@ User.create!(name:"Pieter Serry", email:"pieter@mail.com", password:"123456")
 User.create!(name:"Charlie Quarterman", email:"charlie@mail.com", password:"123456")
 
 
-bicycle = Bicycle.create!(name: 'Dream Wheels',
+bicycle = Bicycle.create!(name: 'Riding on Marshmallows',
                           category: 'Road',
                           serial_number: '12345',
                           description: 'Gold S Works',
@@ -152,16 +152,16 @@ Component.create!(name: "Crank",
                 make:"Trek",
                 serial_number: "XNC 2142323151",
                 description: "Diamant Wheel Top DCRX1 Double Crankset")
-url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733404790/crank_rp6hmq.jpg"
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733409497/Shimano-FC-R9200-Dura-Ace-12-Speed-Double-Power-Meter-Chainset-fcr9200p-black_2_r8rp3a.webp"
 file = URI.parse(url).open
-Component.last.photo.attach(io: file, filename: "Trek-Crank.jpg", content_type: "image/jpg")
+Component.last.photo.attach(io: file, filename: "Trek-Crank.webm", content_type: "image/webm")
 
 
 Component.create!(name: "29er Carbon MTB",
                 make:"DCB",
                 serial_number: "ty2356q",
                 description: "The DCB Carbon MTB Ultralight Wheels are our lightest wheels yet still being capable for XC/Trail riding and racing. The rims are ultralight at 285g a rim for the 27mm (22id) create a ridiculously light rotating mass and the 34mm (28id) are only 310g!!")
-url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733404790/revolt_frame_kt2hrk.png"
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733409498/giant_frame_2_a8jqk2.jpg"
 file = URI.parse(url).open
 Component.last.photo.attach(io: file, filename: "revolt-frame.jpg", content_type: "image/jpg")
 
