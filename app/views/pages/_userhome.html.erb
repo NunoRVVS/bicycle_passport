@@ -86,7 +86,7 @@
   <div class="d-flex justify-content-between edges mb-4">
   <h3>Details</h3>
     <div>
-        <%= link_to "See all", "#{@bicycle.id}/components", class: "btn btn-confirm" %>
+        <%= link_to "See all", "/bicycles/#{@bicycle.id}/components", class: "btn btn-confirm" %>
     </div>
   </div>
 
@@ -159,7 +159,7 @@
 
       <h3>Log Book</h3>
       <div>
-        <%= link_to "See full history", "#{@bicycle.id}/maintenances", class: "btn btn-default" %>
+        <%= link_to "See full history", bicycle_maintenances_path(@bicycle), class: "btn btn-default" %>
       </div>
 
   </div>
