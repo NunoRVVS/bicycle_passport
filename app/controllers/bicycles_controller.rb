@@ -17,6 +17,9 @@ class BicyclesController < ApplicationController
     @components = Component.all
     @featured_components = Component.first(4)
 
+    @warranty = Warranty.where(bicycle: @bicycle).first
+    @insurance = InsurancePolicy.where(bicycle: @bicycle).last
+
     @ride = @rides.first
     if !@ride.nil?
       @markers = [ {
