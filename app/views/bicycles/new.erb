@@ -17,14 +17,20 @@
   <div class="jumbotron" style="width:900px; padding: 20px;">
     <h1 class="display-5 d-flex justify-content-center">New Bicycle</h2>
     <hr class="my-4">
+        <%= link_to bicycles_path do %>
+      <span>  <ion-icon name="arrow-undo-outline"></ion-icon>  Back </span>
+      <% end %>
     <div class="d-flex flex-column align-items-center">
-        <%= turbo_frame_tag :code_input_form do    %>
-        <%= link_to "Do you have a manufacturer code?", new_code_path, class: "button mb-3" %>
-
-    <%= turbo_frame_tag :bicycle_form do%>
-    <%= render "form", bicycle: @bicycle %>
+      <%= turbo_frame_tag :code_input_form do    %>
+      <button class="mb-4">
+      <%= link_to "Do you have a manufacturer code?", new_code_path %>
+      </button>
+      <%= turbo_frame_tag :bicycle_form do%>
+      <%= render "form", bicycle: @bicycle %>
+      <% end %>
     <% end %>
-        <% end %>
+    </div>
 </div>
 </div>
-</div>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

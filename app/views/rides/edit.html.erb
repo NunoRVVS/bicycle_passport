@@ -3,9 +3,11 @@
   <div class="jumbotron" style="width:900px; padding: 20px;">
     <h1 class="display-5 d-flex justify-content-center">Edit Ride</h2>
     <hr class="my-4">
+    <%= link_to bicycle_rack_path do %>
+      <span>  <ion-icon name="arrow-undo-outline"></ion-icon>  Back </span>
+    <% end %>
     <div class="d-flex flex-column align-items-center">
     <%= render "form", ride: @ride %>
-    <%= link_to "Delete", ride_path(@ride), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     </div>
   </div>
 </div>
