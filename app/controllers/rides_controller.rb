@@ -10,9 +10,11 @@ class RidesController < ApplicationController
     @user = current_user
     @users_rides_this_ride = UsersRide.where(ride_id: @ride )
     @ids_of_participants = [];
+    @bikes_of_participants = [];
     @users_rides_this_ride.map do |participant|
       if !@ids_of_participants.include?(participant.user_id)
         @ids_of_participants << participant.user_id
+        @bikes_of_participants << participant.bicycle
       end
 
     end
