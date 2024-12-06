@@ -438,10 +438,149 @@ Ride.create!(
  UsersRide.create!(
   user: User.all[0],
   bicycle: Bicycle.all[0],
+  ride: Ride.all[1]
+ )
+
+UsersRide.create!(
+  user: User.all[0],
+  bicycle: Bicycle.all[0],
+  ride: Ride.all[2]
+ )
+
+UsersRide.create!(
+  user: User.all[0],
+  bicycle: Bicycle.all[0],
+  ride: Ride.all[3]
+ )
+
+UsersRide.create!(
+  user: User.all[0],
+  bicycle: Bicycle.all[0],
+  ride: Ride.all[4]
+ )
+
+
+# -----
+UsersRide.create!(
+  user: User.all[1],
+  bicycle: Bicycle.all[1],
   ride: Ride.all[0]
  )
- UsersRide.create!(
+
+UsersRide.create!(
   user: User.all[1],
   bicycle: Bicycle.all[1],
   ride: Ride.all[1]
  )
+
+UsersRide.create!(
+  user: User.all[1],
+  bicycle: Bicycle.all[1],
+  ride: Ride.all[2]
+ )
+
+UsersRide.create!(
+  user: User.all[1],
+  bicycle: Bicycle.all[1],
+  ride: Ride.all[3]
+ )
+
+UsersRide.create!(
+  user: User.all[1],
+  bicycle: Bicycle.all[1],
+  ride: Ride.all[4]
+ )
+
+# -----
+UsersRide.create!(
+  user: User.all[2],
+  bicycle: Bicycle.all[2],
+  ride: Ride.all[0]
+ )
+
+UsersRide.create!(
+  user: User.all[2],
+  bicycle: Bicycle.all[2],
+  ride: Ride.all[2]
+ )
+
+UsersRide.create!(
+  user: User.all[2],
+  bicycle: Bicycle.all[2],
+  ride: Ride.all[2]
+ )
+
+UsersRide.create!(
+  user: User.all[2],
+  bicycle: Bicycle.all[2],
+  ride: Ride.all[3]
+ )
+
+UsersRide.create!(
+  user: User.all[2],
+  bicycle: Bicycle.all[2],
+  ride: Ride.all[4]
+ )
+
+# -----
+UsersRide.create!(
+  user: User.all[3],
+  bicycle: Bicycle.all[3],
+  ride: Ride.all[0]
+ )
+
+UsersRide.create!(
+  user: User.all[3],
+  bicycle: Bicycle.all[3],
+  ride: Ride.all[2]
+ )
+
+UsersRide.create!(
+  user: User.all[3],
+  bicycle: Bicycle.all[3],
+  ride: Ride.all[2]
+ )
+
+UsersRide.create!(
+  user: User.all[3],
+  bicycle: Bicycle.all[3],
+  ride: Ride.all[3]
+ )
+
+UsersRide.create!(
+  user: User.all[3],
+  bicycle: Bicycle.all[3],
+  ride: Ride.all[4]
+ )
+
+# -----
+UsersRide.create!(
+  user: User.all[4],
+  bicycle: Bicycle.all[4],
+  ride: Ride.all[0]
+ )
+
+UsersRide.create!(
+  user: User.all[4],
+  bicycle: Bicycle.all[4],
+  ride: Ride.all[2]
+ )
+
+UsersRide.create!(
+  user: User.all[4],
+  bicycle: Bicycle.all[4],
+  ride: Ride.all[2]
+ )
+
+UsersRide.create!(
+  user: User.all[4],
+  bicycle: Bicycle.all[4],
+  ride: Ride.all[3]
+ )
+
+UsersRide.create!(
+  user: User.all[4],
+  bicycle: Bicycle.all[4],
+  ride: Ride.all[4]
+ )
+
