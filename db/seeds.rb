@@ -263,6 +263,77 @@ url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733315808/1_hfkw9w.jp
 file = URI.parse(url).open
 Ride.last.photo.attach(io: file, filename: "ride2.jpg", content_type: "image/jpg")
 
+Ride.create!(
+  name: "Burning calories",
+  start_lat: -27.574305,
+  start_date: "2024-11-29",
+  end_date: "2024-11-29",
+  user: User.all[2],
+  start_long: -48.60697,
+  end_lat: 38.719364,
+  end_long: -9.003544,
+  distance: 45.0,
+  start_time: "Sat, 01 Jan 2000 12:08:00.000000000 UTC +00:00",
+  end_time: "Sat, 01 Jan 2000 15:08:00.000000000 UTC +00:00>"
+  )
+
+Ride.create!(
+  name: "The longest",
+  start_lat: 38.523502,
+  start_date: "2024-12-07",
+  end_date: "2024-12-07",
+  user: User.all[3],
+  start_long: -8.894553,
+  end_lat: 38.95381,
+  end_long: -8.98968,
+  distance: 65.0,
+  start_time: "Sat, 01 Jan 2000 12:05:00.000000000 UTC +00:00",
+  end_time: "Sat, 01 Jan 2000 14:05:00.000000000 UTC +00:00",
+)
+
+Ride.create!(
+  name: "Out to Nature",
+  start_lat: 38.708294,
+  start_date: "2024-12-15",
+  end_date: "2024-12-15",
+  user: User.all[4],
+  start_long: -9.13787,
+  end_lat: 38.795944,
+  end_long: -9.38959,
+  distance: 55.0,
+  start_time: "Sat, 01 Jan 2000 10:00:00.000000000 UTC +00:00",
+  end_time: "Sat, 01 Jan 2000 15:00:00.000000000 UTC +00:00>"
+)
+
+Ride.create!(
+  name: "Coastal Path",
+  start_lat: 38.7064,
+  start_date: "Tue, 10 Dec 2024",
+  end_date: "Tue, 10 Dec 2024",
+  user: User.all[4],
+  start_long: -9.144683,
+  end_lat: 38.698032,
+  end_long: -9.420665,
+  distance: 45.0,
+  start_time: "Sat, 01 Jan 2000 10:00:00.000000000 UTC +00:00",
+  end_time: "Sat, 01 Jan 2000 15:00:00.000000000 UTC +00:00>"
+)
+
+Ride.create!(
+  name: "City Tour",
+  start_lat: 38.71731,
+  start_date: "2024-11-26",
+  end_date: "2024-11-26",
+  user: User.all[0],
+  start_long: -9.143052,
+  end_lat: -1.45056,
+  end_long: -48.4682,
+  distance: 35.0,
+  start_time: "Sat, 01 Jan 2000 10:30:00.000000000 UTC +00:00",
+  end_time: "Sat, 01 Jan 2000 15:00:00.000000000 UTC +00:00"
+)
+
+
 
 
  Component.create!(name: "29er Carbon MTB",
