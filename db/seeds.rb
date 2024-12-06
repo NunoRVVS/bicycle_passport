@@ -265,7 +265,7 @@ Ride.create!(
   start_lat: 38.48761,
   start_date: "2024-11-28",
   end_date: "2024-11-29",
-  user: User.all[0],
+  user: User.all[1],
   start_long: -9.113747,
   end_lat: 38.523502,
   end_long: -8.894553,
@@ -583,4 +583,3 @@ UsersRide.create!(
   bicycle: Bicycle.all[4],
   ride: Ride.all[4]
  )
-
