@@ -139,6 +139,20 @@ url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733487716/Giant-Revol
 file = URI.parse(url).open
 Bicycle.last.photo.attach(io: file, filename: "giantII.jpg", content_type: "image/jpg")
 
+performance = Bicycle.create!(name: 'Cybord',
+                          category: 'Performance',
+                          serial_number: '4243355225',
+                          description: 'Cybernetic Nonsense ',
+                          make: 'Cannondale',
+                          favourite: true,
+                          verified: true,
+                          user: User.all[5])
+                          #comment
+
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733487720/C21_C11101M_SystemSix_HM_DA_BLK_PD_zbigq0.jpg"
+file = URI.parse(url).open
+Bicycle.last.photo.attach(io: file, filename: "giantII.jpg", content_type: "image/jpg")
+
 InsurancePolicy.create!(insurer: 'XYZ Insurance', policy_number: '12345', description: 'Basic coverage', bicycle: bicycle)
 InsurancePolicy.create!(insurer: 'YellowOnes Insurance', policy_number: '1654f874d', description: 'Racing coverage', bicycle: burnout)
 InsurancePolicy.create!(insurer: 'Velosurance', policy_number: '1r54s87f48', description: 'Full coverage', bicycle: weekender)
