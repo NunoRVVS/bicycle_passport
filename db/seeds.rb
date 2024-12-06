@@ -133,6 +133,7 @@ performance = Bicycle.create!(name: 'Road Bender',
                           favourite: true,
                           verified: true,
                           user: User.all[4])
+                          #comment
 
 url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733487716/Giant-Revolt-Advanced-0-brown-hematite_1_p7sisq.jpg"
 file = URI.parse(url).open
