@@ -308,6 +308,9 @@ Ride.create!(
   start_time: "Sat, 01 Jan 2000 12:08:00.000000000 UTC +00:00",
   end_time: "Sat, 01 Jan 2000 15:08:00.000000000 UTC +00:00>"
   )
+  url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733501352/Burning_calories.jpg_gwvr83.webp"
+  file = URI.parse(url).open
+  Ride.last.photo.attach(io: file, filename: "calories.webm", content_type: "image/webm")
 
 Ride.create!(
   name: "The longest",
@@ -322,6 +325,11 @@ Ride.create!(
   start_time: "Sat, 01 Jan 2000 12:05:00.000000000 UTC +00:00",
   end_time: "Sat, 01 Jan 2000 14:05:00.000000000 UTC +00:00",
 )
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733501352/The_longest_l4htmo.jpg"
+file = URI.parse(url).open
+Ride.last.photo.attach(io: file, filename: "outtonature.webm", content_type: "image/webm")
+
+
 
 Ride.create!(
   name: "Out to Nature",
@@ -336,6 +344,9 @@ Ride.create!(
   start_time: "Sat, 01 Jan 2000 10:00:00.000000000 UTC +00:00",
   end_time: "Sat, 01 Jan 2000 15:00:00.000000000 UTC +00:00>"
 )
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733501353/Out_to_nature_iebuc8.webp"
+file = URI.parse(url).open
+Ride.last.photo.attach(io: file, filename: "outtonature.webp", content_type: "image/webp")
 
 Ride.create!(
   name: "Coastal Path",
@@ -351,6 +362,10 @@ Ride.create!(
   end_time: "Sat, 01 Jan 2000 15:00:00.000000000 UTC +00:00>"
 )
 
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733501352/Coastal_path_b8dmop.jpg"
+file = URI.parse(url).open
+Ride.last.photo.attach(io: file, filename: "coastal.jpg", content_type: "image/jpg")
+
 Ride.create!(
   name: "City Tour",
   start_lat: 38.71731,
@@ -365,7 +380,9 @@ Ride.create!(
   end_time: "Sat, 01 Jan 2000 15:00:00.000000000 UTC +00:00"
 )
 
-
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733501354/City_tour_nbmbpl.jpg"
+file = URI.parse(url).open
+Ride.last.photo.attach(io: file, filename: "citytour.jpg", content_type: "image/jpg")
 
 
  Component.create!(name: "29er Carbon MTB",
