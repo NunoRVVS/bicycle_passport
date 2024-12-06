@@ -11,7 +11,7 @@
 
   <% @bicycles.each do |bicycle| %>
     <div class="card col-sm-4 bike-card p-0 mt-5">
-      <div class="m-3 card-holder">
+      <div class="m-3 card-holder" style="height:400px;">
         <%# <img src="..." class="card-img-top" alt="Your bike here"> %>
         <% if bicycle.photo.present? %>
         <div class="m-3 d-flex align-content-center justify-content-center">
@@ -27,7 +27,7 @@
 <%end%>
 <% end %>
    <div class="card col-sm-4 bike-card p-0 mt-5" style="opacity:0.45;">
-      <div class="m-3 card-holder">
+      <div class="m-3 card-holder" style="height:400px;">
         <%# <img src="..." class="card-img-top" alt="Your bike here"> %>
 
         <div class="m-3 d-flex align-content-center justify-content-center">
