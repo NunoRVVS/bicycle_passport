@@ -45,7 +45,7 @@ class RidesController < ApplicationController
 
   def update
     @ride = Ride.find(params[:id])
-    @ride.update(ride_params)
+    @ride.update(ride_params_from_form)
     redirect_to ride_path(@ride)
   end
 
