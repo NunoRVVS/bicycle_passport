@@ -12,10 +12,10 @@
           <p><%= maintenance.date %></p>
           <p><%= maintenance.description %></p>
           <hr class="p-1">
-          <button>
+          <%# <button>
           <%= link_to "Delete", maintenance_path(maintenance),
               data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-          </button>
+          <%#</button> %>
         </div>
       </div>
     <% end %>

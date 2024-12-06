@@ -46,8 +46,26 @@ User.last.photo.attach(io: file, filename: "Louis-Vervaeke.jpg", content_type: "
 
 
 User.create!(name:"Stefano Oldani", email:"stefano@mail.com", password:"123456")
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733401405/stefano-oldani-2024_aeyahn.jpg"
+
+file = URI.parse(url).open
+User.last.photo.attach(io: file, filename: "stefano-oldani.jpg", content_type: "image/jpg")
+
+
 User.create!(name:"Alexander Krieger", email:"alexander@mail.com", password:"123456")
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733401416/davide-ballerini-2024_odqdd9.jpg"
+
+file = URI.parse(url).open
+User.last.photo.attach(io: file, filename: "alexander krieger.jpg", content_type: "image/jpg")
+
+
 User.create!(name:"Yukiya Arashiro", email:"yukiya@mail.com", password:"123456")
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733401420/yukiya-arashiro-2024_squared_oic3mh.jpg"
+
+file = URI.parse(url).open
+User.last.photo.attach(io: file, filename: "Yukiya Arashiro.jpg", content_type: "image/jpg")
+
+
 User.create!(name:"Diego Pablo Sevilla", email:"diego@mail.com", password:"123456")
 User.create!(name:"Pieter Serry", email:"pieter@mail.com", password:"123456")
 User.create!(name:"Charlie Quarterman", email:"charlie@mail.com", password:"123456")
@@ -106,6 +124,19 @@ url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733401004/Van_Rysel_A
 file = URI.parse(url).open
 Bicycle.last.photo.attach(io: file, filename: "vanrysel.jpg", content_type: "image/jpg")
 
+
+performance = Bicycle.create!(name: 'Road Bender',
+                          category: 'Road',
+                          serial_number: '349d3jd4',
+                          description: 'Asphalt King',
+                          make: 'Giant',
+                          favourite: true,
+                          verified: true,
+                          user: User.all[4])
+
+url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733487716/Giant-Revolt-Advanced-0-brown-hematite_1_p7sisq.jpg"
+file = URI.parse(url).open
+Bicycle.last.photo.attach(io: file, filename: "giantII.jpg", content_type: "image/jpg")
 
 InsurancePolicy.create!(insurer: 'XYZ Insurance', policy_number: '12345', description: 'Basic coverage', bicycle: bicycle)
 InsurancePolicy.create!(insurer: 'YellowOnes Insurance', policy_number: '1654f874d', description: 'Racing coverage', bicycle: burnout)
