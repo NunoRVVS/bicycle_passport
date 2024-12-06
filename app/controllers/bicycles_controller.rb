@@ -71,7 +71,7 @@ class BicyclesController < ApplicationController
 
       @bicycle.favourite = true
     end
-
+    #raise
     @bicycle.update(bicycle_params)
     redirect_to bicycle_path(@bicycle)
   end
@@ -86,14 +86,24 @@ class BicyclesController < ApplicationController
   end
 
   def new_code_validation
-    @bicycle = Bicycle.new()
-    @bicycle.favourite = true
-    @bicycle.make = "Specialized"
-    @bicycle.serial_number = "1337-t00c00l-b1k3"
-    @bicycle.verified = true
-    @bicycle.user = current_user
-    @bicycle.category = "Road"
-    @bicycle.description = "S-Works Aethos Shimano Dura-Ace Di2"
+   # @bicycle = Bicycle.new()
+
+    @bicycle = Bicycle.create(name: "",
+    category: 'Road',
+    serial_number: '5up34-c001-b1k3',
+    description: 'S-Works Aethos Shimano Dura-Ace Di2',
+    make: 'Specialized',
+    favourite: true,
+    verified: true,
+    user: current_user)
+
+    # @bicycle.favourite = true
+    # @bicycle.make = "Specialized"
+    # @bicycle.serial_number = "1337-t00c00l-b1k3"
+    # @bicycle.verified = true
+    # @bicycle.user = current_user
+    # @bicycle.category = "Road"
+    # @bicycle.description = "S-Works Aethos Shimano Dura-Ace Di2"
     url = "https://res.cloudinary.com/dhyc7cqxl/image/upload/v1733402994/00_AETHOS-SW_g2ykkc.png"
 
     file = URI.parse(url).open
